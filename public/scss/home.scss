@@ -1,0 +1,635 @@
+@font-face {
+    font-family: "Scheherazade New";
+    src: url(Font/ScheherazadeNew-Regular.ttf);
+}
+
+@font-face {
+    font-family: "GT Alpina Fine Trial Rg";
+    src: url(Font/GT-Alpina-Fine-Regular-Trial);
+
+}
+
+@font-face {
+    font-family: "OptimusPrinceps";
+    src: url(Font/OptimusPrinceps.ttf);
+}
+
+@font-face {
+    font-family: "GT Alpina Trial Lt";
+    src: url(Font/GT-Alpina-Light-Trial.woff2) format(woff2);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 150px;
+    overflow-x: hidden;
+}
+
+
+section.hero {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, .5)), url(../pict/hero.png);
+    object-fit: cover;
+    background-size: cover;
+    color: #fff;
+    background-position: center;
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        font-size: 1.6em;
+        column-gap: 2em;
+
+        .logo {
+            font-family: "OptimusPrinceps";
+            font-size: 1.2em;
+
+            a {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 35%;
+            list-style-type: none;
+            font-family: "Scheherazade New";
+
+            a {
+                color: #A8A8A8;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: #fff;
+            }
+        }
+    }
+
+    .hero-text {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: end;
+        top: 35%;
+        right: 1rem;
+        font-family: "GT Alpina Fine Trial Rg";
+        font-size: 1.3em;
+
+        h1 {
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            width: 30%;
+        }
+    }
+}
+
+
+section.best-seller {
+    width: 80%;
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    margin: auto;
+    font-family: "GT Alpina Fine Trial Rg";
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 32px;
+    }
+
+    .card-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+
+        .card {
+            width: 400px;
+            height: 600px;
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, .5));
+            overflow: hidden;
+
+            .card-image img {
+                mix-blend-mode: overlay;
+                object-fit: cover;
+                object-position: center bottom;
+            }
+
+            .card-content {
+                position: relative;
+                color: #fff;
+                font-size: 1.2rem;
+                transform: translateY(-90px);
+                padding-left: 20px;
+                transition: .5s ease all;
+                box-sizing: border-box;
+
+                h3 {
+                    font-size: 1.5em;
+                }
+
+                .card-button-action {
+                    margin-top: 32px;
+                    width: 100%;
+                    box-sizing: border-box;
+                    display: inline-block;
+                    margin-bottom: 12px;
+
+                    .add-to-cart {
+                        width: 40%;
+                        border: 3px solid #fff;
+                        background-color: transparent;
+                        padding: 10px;
+                        color: #fff;
+                        font-size: 100%;
+                        font-family: "GT Alpina Fine Trial Rg";
+                        transition: .3s ease all;
+                        box-sizing: border-box;
+                        margin-right: 12px;
+                        cursor: pointer;
+                    }
+
+                    .add-to-cart:hover {
+                        background-color: #fff;
+                        color: #000;
+                    }
+
+                    .details {
+                        width: 40%;
+                        border: 3px solid #fff;
+                        background-color: #fff;
+                        padding: 10px;
+                        color: #000;
+                        font-size: 100%;
+                        font-family: "GT Alpina Fine Trial Rg";
+                        cursor: pointer;
+                        transition: .3s ease all;
+                    }
+
+                    .details:hover {
+                        border: 3px solid #000;
+                        background-color: #000;
+                        color: #fff;
+                    }
+                }
+
+
+            }
+        }
+
+        .card:hover {
+            .card-content {
+                transform: translateY(-160px);
+            }
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .show-more {
+        margin-top: 32px;
+        font-family: "GT Alpina Fine Trial Rg";
+        border: none;
+        background-color: #000;
+        border: 3px solid #000;
+        color: #fff;
+        padding: 1rem;
+        font-size: 1.5rem;
+        width: fit-content;
+        cursor: pointer;
+        transition: .3s ease all;
+    }
+
+    .show-more:hover {
+        border: 3px solid #000;
+        background-color: #fff;
+        color: #000;
+    }
+}
+
+
+section.about {
+    width: 100%;
+    height: 400px;
+    background-image: linear-gradient(rgba(0, 0, 0, .35)), url(../pict/about.png);
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    font-family: "GT Alpina Fine Trial Rg";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+    margin: auto;
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    a button {
+        padding: .8rem 1.5rem;
+        background-color: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+        font-size: 1.7em;
+        font-family: "GT Alpina Fine Trial Rg";
+        cursor: pointer;
+        transition: .3s ease all;
+    }
+
+    a button:hover {
+        background-color: white;
+        color: #000;
+    }
+}
+
+
+section.membership {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    column-gap: 3rem;
+    grid-auto-flow: column;
+    grid-template-columns: 20% 5px 30% auto;
+    width: 80%;
+    height: fit-content;
+    margin: auto;
+    font-family: "GT Alpina Fine Trial Rg";
+
+    h1 {
+        font-size: 3vw;
+    }
+
+    hr {
+        height: 100%;
+        width: .3vw;
+        background-color: #000;
+        border: none;
+    }
+
+    p {
+        font-size: 1.6vw;
+    }
+
+    button.upgrade-membership {
+        padding: 1rem 1.5rem;
+        background-color: #000;
+        border: 3px solid #000;
+        font-size: 1.8vw;
+        font-family: "GT Alpina Fine Trial Rg";
+        color: #fff;
+        cursor: pointer;
+        transition: .3s ease all;
+    }
+
+    button.upgrade-membership:hover {
+        background-color: #fff;
+        color: #000;
+    }
+}
+
+
+section.offering {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    margin: auto;
+    width: 70%;
+    height: 900px;
+    margin-bottom: 400px;
+    font-family: "GT Alpina Fine Trial Rg";
+
+    .offering-head {
+        font-size: 3rem;
+    }
+
+    .offering-container {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 30% auto auto;
+        grid-template-rows: 20% auto auto;
+        grid-template-areas:
+            'offering-side offering-head offering-head'
+            'offering-side offering-main offering-main'
+            'offering-side offering-main offering-main';
+        gap: 4px;
+
+        .offering-side {
+            grid-area: offering-side;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3vw;
+            font-family: "GT Alpina Trial Lt";
+
+            h1 {
+                width: 70%;
+            }
+        }
+
+        .offering-head {
+            grid-area: offering-head;
+            background-color: #000;
+            color: #fff;
+            padding-bottom: 24px;
+
+            ul {
+                list-style-type: none;
+                display: flex;
+                justify-content: space-around;
+                font-size: 1.8vw;
+                align-items: flex-end;
+                height: 100%;
+                // margin-bottom: 24px;
+
+                li a {
+                    text-decoration: none;
+                    color: #fff;
+                }
+            }
+        }
+
+        .offering-main {
+            grid-area: offering-main;
+            background-color: #714E2F;
+            color: #fff;
+        }
+    }
+}
+
+
+section.footer {
+    background-image: url(../pict/home-footer.png);
+    height: 1200px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7vw;
+
+
+    .logo {
+        font-size: 3em;
+        font-family: "OptimusPrinceps";
+        color: #fff;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+
+    .footer-container {
+        display: flex;
+        flex-direction: row;
+        color: #fff;
+        column-gap: 2em;
+        align-items: center;
+        // background-color: red;
+
+        .footer-container-left {
+            h2 {
+                font-weight: unset;
+            }
+
+            // .contact-us {
+
+            // }
+
+            .find-us {
+                ul {
+                    list-style-type: none;
+                }
+
+            }
+        }
+
+        hr {
+            height: 100%;
+        }
+
+        .footer-container-right {
+            h2 {
+                font-weight: unset;
+            }
+
+            .feature {
+                ul {
+                    list-style-type: none;
+                }
+            }
+
+            .special-thanks {}
+        }
+    }
+
+    .footer-container div:not(:last-child) {
+        margin-bottom: 4em;
+    }
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    section.hero {
+        .navbar {
+            justify-content: space-around;
+            font-size: 1.2em;
+
+            .nav-list {
+                width: 50%;
+                justify-content: space-around;
+            }
+        }
+
+        .hero-text {
+            top: 20%;
+            font-size: 1em;
+
+            h3 {
+                width: 50%;
+            }
+        }
+    }
+
+
+    section.best-seller {
+
+        overflow: hidden;
+
+        .card-container {
+            display: grid;
+            grid-auto-flow: column;
+            gap: unset;
+            justify-content: unset;
+            position: relative;
+
+            .card:nth-child(1) {
+                z-index: -1;
+                background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 1));
+                mix-blend-mode: overlay;
+                transform: scale(.8);
+                left: -8%;
+
+                .card-content {
+                    display: none;
+                }
+            }
+
+            .card:nth-child(2) {
+                z-index: 2;
+                left: -70%;
+            }
+
+            .card:nth-child(3) {
+                z-index: -2;
+                left: -130%;
+                background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 1));
+                mix-blend-mode: overlay;
+                transform: scale(.8);
+
+                .card-content {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    section.membership {
+        width: 90%;
+
+        h1 {
+            font-size: 30px;
+
+            span {
+                display: block;
+            }
+        }
+
+        hr {
+            width: 5px;
+        }
+
+        p {
+            font-size: 24px;
+        }
+
+        button.upgrade-membership {
+            font-size: 16px;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    section.hero {
+        .navbar {
+            .nav-list {
+                display: none;
+            }
+        }
+
+        .hero-text {
+            width: 100%;
+            font-size: 1em;
+            align-items: center;
+            justify-items: flex-end;
+            text-align: center;
+            top: 200px;
+            right: 0;
+        }
+    }
+
+    section.best-seller {
+        h1 {
+            text-align: center;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            flex-direction: row;
+            row-gap: 2rem;
+            position: unset;
+
+            .card {
+                width: 400px;
+                height: 600px;
+                background: linear-gradient(rgba(0, 0, 0, .5));
+                overflow: hidden;
+                transform: unset;
+            }
+
+
+            .card:nth-child(1) {
+                z-index: unset;
+                background: linear-gradient(rgba(0, 0, 0, .5));
+                mix-blend-mode: overlay;
+                transform: unset;
+                left: unset;
+
+                .card-content {
+                    display: inherit;
+                }
+            }
+
+            .card:nth-child(2) {
+                z-index: unset;
+                left: unset;
+            }
+
+            .card:nth-child(3) {
+                z-index: unset;
+                left: unset;
+                background: linear-gradient(rgba(0, 0, 0, .5));
+                mix-blend-mode: none;
+                transform: unset;
+
+                .card-content {
+                    display: inherit;
+                }
+            }
+        }
+
+        .show-more {
+            display: flex;
+            margin: 32px auto 0 auto;
+        }
+    }
+
+    section.membership {
+        grid-auto-flow: row;
+        grid-template-columns: unset;
+        grid-template-rows: 1fr 30px 1fr 1fr;
+
+        hr {
+            width: 100%;
+            height: 5px;
+        }
+    }
+}
