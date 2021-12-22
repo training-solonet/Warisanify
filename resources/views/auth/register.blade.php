@@ -19,17 +19,39 @@
       <div class="left col-lg-6 col-md-6 col-sm-12 d-flex align-items-center">
         <form method="POST" action="{{ route('register') }}" class="form container col-md-12 col-lg-8">
             @csrf
+          {{-- <x-jet-validation-errors class="mb-4" /> --}}
           <div class="mb-3">
             <label for="username" value="{{ __('username') }}">Username</label>
-            <input type="text" name="username" :value="old('username')" required autofocus autocomplete="username" class="form-control p-md-2" id="username" bootstrap-overrides" aria-describedby="emailHelp" />
+            <input type="text" name="username" :value="old('username')" required autofocus autocomplete="username" class="form-control p-md-2 @error('username') is-invalid
+                @enderror" id="username" bootstrap-overrides" aria-describedby="emailHelp" />
+                @error('username')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control p-md-2" id="password" required autocomplete="new-password"/>
+            <input type="password" name="password" class="form-control p-md-2 @error('password') is-invalid
+            @enderror" id="password" required autocomplete="new-password"/>
+            @error('password')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
           </div>
+
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-            <input type="password" name="password_confirmation" class="form-control p-md-2" id="password_confirmation" required autocomplete="new-password"/>
+            <label for="password_confirmation" class="form-label" value="{{ __('Confirm Password') }}">Confirm Password</label>
+            <input type="password" name="password_confirmation" class="form-control p-md-2 @error('password_confirmation') is-invalid
+                @enderror" id="password_confirmation" required autocomplete="new-password"/>
+            @error('password_confirmation')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+
           </div>
           <div class="mb-3">
             <input type="hidden" value="user" name="role" class="form-control p-md-2" id="Cpassword" />

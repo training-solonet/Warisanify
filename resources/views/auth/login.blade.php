@@ -24,11 +24,19 @@
             @csrf
           <div class="mb-3">
             <label for="Username" class="form-label">Username</label>
-            <input type="text" name="username" :value="old('username')" class="form-control p-md-2" id="Username" aria-describedby="emailHelp" />
+            <input type="text" name="username" :value="old('username')" class="form-control p-md-2 @error('username') is-invalid
+            @enderror" id="Username" aria-describedby="emailHelp" />
+            @error('username')
+                {{ $message }}
+            @enderror
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control p-md-2" id="password" required autocomplete="current-password"/>
+            <input type="password" name="password" class="form-control p-md-2 @error('password') is-invalid
+            @enderror" id="password" required autocomplete="current-password"/>
+            @error('password')
+                {{ $message }}
+            @enderror
           </div>
           <div class="mb-3 form-check">
             <input type="hidden" name="role" value="user" class="form-check-input" id="exampleCheck1">
