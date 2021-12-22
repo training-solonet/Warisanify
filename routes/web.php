@@ -1,7 +1,11 @@
 <?php
 
-use App\Http\Controllers\BarangController;
+use App\Models\Barang;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\KategoriController;
+use App\Models\Kategori;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +22,11 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::resource('shop', BarangController::class);
+Route::get('/shop', function(){
+    $barang = Barang::with('kategori')->get();
+    return view('shop', compact('barang'));
+});
+
+Route::resource('/barang', BarangController::class);
+
+Route::resource('/kategori', KategoriController::class);

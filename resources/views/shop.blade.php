@@ -11,7 +11,7 @@
 
 <body>
     <nav class="navbar">
-        <a class="logo" href="home.php">Warisanify</a>
+        <a class="logo" href="/">Warisanify</a>
         <ul class="nav-list">
             <li><a href="/">Home</a></li>
             <li><a href="/shop">Shop</a></li>

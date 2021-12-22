@@ -149,7 +149,7 @@ section.helper {
 }
 
 section.main-content {
-    width: 60%;
+    width: 65%;
     display: grid;
     grid-template-columns: repeat(auto-fill, 268px);
     justify-content: space-between;
@@ -160,6 +160,10 @@ section.main-content {
         width: 268px;
         object-fit: cover;
         object-position: center;
+    }
+
+    img:hover {
+        transform: scale(1.1);
     }
 
     .card-content {
@@ -203,8 +207,6 @@ section.main-content {
     .card-content>* {
         font-weight: unset;
     }
-
-    .card-content:hover {}
 }
 
 

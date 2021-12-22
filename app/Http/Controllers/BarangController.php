@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Kategori;
 
 class BarangController extends Controller
 {
@@ -15,7 +17,7 @@ class BarangController extends Controller
     public function index()
     {
         $barang = Barang::with('kategori')->get();
-        return view('shop', compact('barang'));
+        return view('adminPage.tableBarang', compact('barang'));
     }
 
     /**
@@ -25,7 +27,8 @@ class BarangController extends Controller
      */
     public function create()
     {
-        //
+        $kategori = Kategori::get();
+        return view('adminPage.create', compact('kategori'));
     }
 
     /**
@@ -36,7 +39,16 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'namaBarang' => 'required|max:30',
+            'harga' => 'required',
+            'gambar' => 'required',
+            'detailProduk' => 'required',
+            'idKategori' => 'required'
+        ]);
+
+        Barang::create($request->all());
+        return redirect()->route('barang.index')->with('success', 'Data berhasil ditambah!');
     }
 
     /**
@@ -58,7 +70,10 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
-        //
+        $barang = Barang::with('kategori')->find($id);
+        $kategori = Kategori::get();
+        // return $barang;
+        return view('adminPage.edit', compact('barang', 'kategori'));
     }
 
     /**
@@ -70,7 +85,8 @@ class BarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Barang::find($id)->update($request->all());
+        return redirect()->route('barang.index')->with('success', 'Data berhasil di-Update!');
     }
 
     /**
@@ -81,6 +97,7 @@ class BarangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Barang::where('id', $id)->delete();
+        return redirect()->route('barang.index')->with('success', 'Data berhasil dihapus!');
     }
 }

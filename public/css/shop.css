@@ -180,7 +180,7 @@ section.helper .right a .profil p {
 }
 
 section.main-content {
-  width: 60%;
+  width: 65%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (268px)[auto-fill];
@@ -198,6 +198,11 @@ section.main-content img {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+
+section.main-content img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 section.main-content .card-content {
