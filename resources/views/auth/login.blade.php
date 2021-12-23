@@ -19,40 +19,47 @@
       <div class="left col-md-6 col-lg-6 bg-primary"></div>
 
       <div class="right col-lg-6 col-md-6 col-sm-12 d-flex align-items-center">
+        @if (session()->has('loginErorr'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ $message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         <!-- start-form -->
         <form class="form container col-md-12 col-lg-8" method="POST" action="{{ route('login') }}">
             @csrf
+
           <div class="mb-3">
             <label for="Username" class="form-label">Username</label>
-            <input type="text" name="username" :value="old('username')" class="form-control p-md-2 @error('username') is-invalid
-            @enderror" id="Username" aria-describedby="emailHelp" />
+            <input type="text" name="username" class="form-control p-md-2 @error('username') is-invalid
+            @enderror" id="Username" aria-describedby="emailHelp" value="{{ old('username') }}"/>
             @error('username')
                 {{ $message }}
             @enderror
           </div>
+
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control p-md-2 @error('password') is-invalid
-            @enderror" id="password" required autocomplete="current-password"/>
-            @error('password')
-                {{ $message }}
-            @enderror
+            <input type="password" name="password" class="form-control p-md-2" id="password" required autocomplete="current-password"/>
           </div>
+
           <div class="mb-3 form-check">
-            <input type="hidden" name="role" value="user" class="form-check-input" id="exampleCheck1">
+            <input type="hidden" name="role" value="user" class="form-check-input">
           </div>
+
             <div class="flex items-center justify-end">
-                {{-- <x-jet-button class="ml-4"> --}}
+
                 <button type="submit" name="submit" class="btn w-100 btn-primary">
                     {{ __('Login') }}
                 </button>
-                {{-- </x-jet-button> --}}
+
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                     <p>Don't have an account?<a href="/register">Register</a></p>
                 @endif
+
             </div>
 
             <div class="block mt-2  ">
@@ -63,7 +70,6 @@
             </div>
         </form>
         <!-- end-form -->
-
 
       </div>
     </div>

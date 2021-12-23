@@ -22,15 +22,15 @@
           {{-- <x-jet-validation-errors class="mb-4" /> --}}
           <div class="mb-3">
             <label for="username" value="{{ __('username') }}">Username</label>
-            <input type="text" name="username" :value="old('username')" required autofocus autocomplete="username" class="form-control p-md-2 @error('username') is-invalid
-                @enderror" id="username" bootstrap-overrides" aria-describedby="emailHelp" />
+            <input type="text" name="username" required autofocus autocomplete="username" class="form-control p-md-2 @error('username') is-invalid
+                @enderror" id="username" bootstrap-overrides" aria-describedby="emailHelp" value="{{ old('username') }}"/>
                 @error('username')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
                 @enderror
-
           </div>
+
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
             <input type="password" name="password" class="form-control p-md-2 @error('password') is-invalid
@@ -51,10 +51,10 @@
                     {{ $message }}
                 </div>
             @enderror
-
           </div>
+
           <div class="mb-3">
-            <input type="hidden" value="user" name="role" class="form-control p-md-2" id="Cpassword" />
+            <input type="hidden" value="user" name="role" class="form-control p-md-2"/>
           </div>
 
           @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
