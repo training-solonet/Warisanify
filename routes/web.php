@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\homeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
-use App\Http\Controllers\registerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', [loginController::class, 'index']);
+Route::get('/regist', function () {
+    return view('regist');
+});
 
-Route::get('/register', [registerController::class, 'index']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
-Route::post('/register', [registerController::class, 'store']);
+Route::get('redirects', [homeController::class, 'index']);
+Route::post('redirects', [homeController::class, 'authenticate']);
+
