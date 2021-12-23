@@ -30,3 +30,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('redirects', [homeController::class, 'index']);
 Route::post('redirects', [homeController::class, 'authenticate']);
+
