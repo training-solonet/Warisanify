@@ -28,6 +28,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('redirects', [homeController::class, 'index']);
-Route::post('redirects', [homeController::class, 'authenticate']);
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
+    Route::get('redirects', [homeController::class, 'index']);
+
+    Route::middleware(['onlyAdmin'])->group(function () {
+        Route::get('admin', function () {
+            return view('index');
+        });
+    });
+});
