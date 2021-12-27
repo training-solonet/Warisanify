@@ -16,7 +16,7 @@ class BarangFactory extends Factory
 
         return [
             'namaBarang' => $this->faker->sentence(mt_rand(1, 4)),
-            'harga' => mt_rand(1, 4) . "00.000",
+            'harga' => mt_rand(2, 4) . "00.000",
             'gambar' => $this->faker->sentence(mt_rand(1, 3)),
             'detailProduk' => $this->faker->sentence(mt_rand(4, 10)),
             'idKategori' => mt_rand(1, 4)

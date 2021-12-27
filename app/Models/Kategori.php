@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Kategori extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'namaKategori'
+    ];
+
+    public function barang(){
+        return $this->hasMany(Barang::class, 'id');
+    }
 }

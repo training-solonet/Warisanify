@@ -1,9 +1,16 @@
 <?php
 
+
+use App\Models\Barang;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\KategoriController;
+use App\Models\Kategori;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\homeController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +24,20 @@ use App\Http\Controllers\loginController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+
+Route::get('/shop', function(){
+    $barang = Barang::with('kategori')->get();
+    return view('shop', compact('barang'));
+});
+
+Route::resource('/barang', BarangController::class);
+
+Route::resource('/kategori', KategoriController::class);
+
+//master
 
 Route::get('/regist', function () {
     return view('regist');
