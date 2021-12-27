@@ -17,7 +17,7 @@
         <p>{{ $message }}</p>
     </div>
     @endif
-    <form method="POST" action="{{ route('barang.store') }}">
+    <form method="POST" action="{{ route('barang.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="namaBarang" class="form-label">Nama Barang</label>
@@ -32,7 +32,7 @@
         </div>
         <div class="mb-3">
             <label for="gambar" class="form-label">Gambar</label>
-            <input name="gambar" type="text" class="form-control" id="gambar"
+            <input name="gambar" type="file" class="form-control" id="gambar"
                 value="{{ old('gambar') }}" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">

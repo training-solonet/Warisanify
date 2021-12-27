@@ -42,12 +42,22 @@ class BarangController extends Controller
         $request->validate([
             'namaBarang' => 'required|max:30',
             'harga' => 'required',
-            'gambar' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
             'detailProduk' => 'required',
             'idKategori' => 'required'
         ]);
 
-        Barang::create($request->all());
+        $namaGambar = time().'.'.$request->gambar->extension();
+        $request->gambar->move(public_path('pict'), $namaGambar);
+
+
+        Barang::create([
+            'namaBarang' => $request->namaBarang,
+            'harga' => $request->harga,
+            'gambar' => $namaGambar,
+            'detailProduk' => $request->detailProduk,
+            'idKategori' => $request->idKategori
+        ]);
         return redirect()->route('barang.index')->with('success', 'Data berhasil ditambah!');
     }
 

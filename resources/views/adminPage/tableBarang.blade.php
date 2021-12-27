@@ -38,7 +38,7 @@
                   <tr>
                     <td>{{ $dataBarang->namaBarang }}</td>
                     <td>{{ $dataBarang->harga }}</td>
-                    <td>{{ $dataBarang->gambar }}</td>
+                    <td><img width="150px" src="{{ url('pict/'.$dataBarang->gambar) }}"></td>
                     <td>{{ $dataBarang->detailProduk }}</td>
                     <td>{{ $dataBarang->kategori->namaKategori }}</td>
                     <td style="box-sizing:border-box; display: flex">
