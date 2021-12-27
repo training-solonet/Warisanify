@@ -16,6 +16,8 @@ class levelAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if (Auth::user()->role === 'admin') {
+            return $next($request);
+        }
     }
 }
