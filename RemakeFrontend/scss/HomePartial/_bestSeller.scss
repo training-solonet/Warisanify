@@ -1,0 +1,249 @@
+section.best-seller {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    margin: auto;
+    font-family: $GTAlpinaFineTrialRg;
+
+    h1 {
+        font-size: 4em;
+        text-align: center;
+    }
+
+    .card-container {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            width: 400px;
+            height: 600px;
+            overflow: hidden;
+
+            img {
+                mix-blend-mode: overlay;
+                object-fit: cover;
+                object-position: center bottom;
+            }
+
+            .card-content {
+                transition: .6s all ease;
+                color: #fff;
+                font-size: 1.2rem;
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+                margin: auto;
+                margin-bottom: 3rem;
+                transform: translateY(-75px);
+
+                h3 {
+                    font-size: 1.8em;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                }
+
+                a:hover {
+                    color: rgb(202, 202, 202);
+                }
+
+                .card-button-action {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    column-gap: 1rem;
+
+                    a button {
+                        display: inline-block;
+                        width: 100%;
+                        padding: .8rem;
+                        font-size: 1.2em;
+                        cursor: pointer;
+                        font-family: $GTAlpinaFineTrialRg;
+                        border: 3px solid #fff;
+                        background-color: transparent;
+                        color: #fff;
+                        margin-top: 1rem;
+                        transition: .3s ease all;
+                    }
+
+                    .details {
+                        background-color: #fff;
+                        color: #000;
+                    }
+
+                    .add-to-cart:hover {
+                        background-color: #fff;
+                        color: #000;
+                    }
+
+                    .details:hover {
+                        background-color: #000;
+                        color: #fff;
+                        border: 3px solid black;
+                    }
+                }
+
+            }
+
+
+        }
+
+        .card:hover {
+            background: linear-gradient(rgba(0, 0, 0, .6));
+
+            .card-content {
+                transform: translateY(-160px);
+            }
+        }
+    }
+
+
+
+
+
+
+    // width: 80%;
+    // display: flex;
+    // justify-items: center;
+    // flex-direction: column;
+    // margin: auto;
+    // font-family: "GT Alpina Fine Trial Rg";
+
+    // h1 {
+    //     font-size: 3rem;
+    //     margin-bottom: 32px;
+    // }
+
+    // .card-container {
+    //     display: flex;
+    //     justify-content: space-between;
+    //     gap: 2rem;
+
+    //     .card {
+    //         width: 400px;
+    //         height: 600px;
+    //         position: relative;
+    //         background: linear-gradient(rgba(0, 0, 0, .5));
+    //         overflow: hidden;
+
+    //         .card-image img {
+    //             mix-blend-mode: overlay;
+    //             object-fit: cover;
+    //             object-position: center bottom;
+    //         }
+
+    //         .card-content {
+    //             position: relative;
+    //             color: #fff;
+    //             font-size: 1.2rem;
+    //             transform: translateY(-90px);
+    //             padding-left: 20px;
+    //             transition: .5s ease all;
+    //             box-sizing: border-box;
+
+    //             h3 {
+    //                 font-size: 1.5em;
+    //             }
+
+    //             .card-button-action {
+    //                 margin-top: 32px;
+    //                 width: 100%;
+    //                 box-sizing: border-box;
+    //                 display: inline-block;
+    //                 margin-bottom: 12px;
+
+    //                 .add-to-cart {
+    //                     width: 40%;
+    //                     border: 3px solid #fff;
+    //                     background-color: transparent;
+    //                     padding: 10px;
+    //                     color: #fff;
+    //                     font-size: 100%;
+    //                     font-family: "GT Alpina Fine Trial Rg";
+    //                     transition: .3s ease all;
+    //                     box-sizing: border-box;
+    //                     margin-right: 12px;
+    //                     cursor: pointer;
+    //                 }
+
+    //                 .add-to-cart:hover {
+    //                     background-color: #fff;
+    //                     color: #000;
+    //                 }
+
+    //                 .details {
+    //                     width: 40%;
+    //                     border: 3px solid #fff;
+    //                     background-color: #fff;
+    //                     padding: 10px;
+    //                     color: #000;
+    //                     font-size: 100%;
+    //                     font-family: "GT Alpina Fine Trial Rg";
+    //                     cursor: pointer;
+    //                     transition: .3s ease all;
+    //                 }
+
+    //                 .details:hover {
+    //                     border: 3px solid #000;
+    //                     background-color: #000;
+    //                     color: #fff;
+    //                 }
+    //             }
+
+
+    //         }
+    //     }
+
+    //     .card:hover {
+    //         .card-content {
+    //             transform: translateY(-160px);
+    //         }
+    //     }
+    // }
+
+    // a {
+    //     text-decoration: none;
+    // }
+
+    // .show-more {
+    //     margin-top: 32px;
+    //     font-family: "GT Alpina Fine Trial Rg";
+    //     border: none;
+    //     background-color: #000;
+    //     border: 3px solid #000;
+    //     color: #fff;
+    //     padding: 1rem;
+    //     font-size: 1.5rem;
+    //     width: fit-content;
+    //     cursor: pointer;
+    //     transition: .3s ease all;
+    // }
+
+    // .show-more:hover {
+    //     border: 3px solid #000;
+    //     background-color: #fff;
+    //     color: #000;
+    // }
+    .show-more {
+        padding: 1rem;
+        background-color: #000;
+        color: #fff;
+        border: 3px solid black;
+        font-family: $GTAlpinaFineTrialRg;
+        font-size: 2em;
+        transition: .5s ease all;
+        cursor: pointer;
+    }
+
+    .show-more:hover {
+        background-color: #fff;
+        color: #000;
+    }
+}

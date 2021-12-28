@@ -1,0 +1,41 @@
+section.best-seller {
+
+    overflow: hidden;
+
+    .card-container {
+        display: grid;
+        grid-auto-flow: column;
+        gap: unset;
+        justify-content: unset;
+        position: relative;
+
+        .card:nth-child(1) {
+            z-index: -1;
+            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 1));
+            mix-blend-mode: overlay;
+            transform: scale(.8);
+            left: -8%;
+
+            .card-content {
+                display: none;
+            }
+        }
+
+        .card:nth-child(2) {
+            z-index: 2;
+            left: -70%;
+        }
+
+        .card:nth-child(3) {
+            z-index: -2;
+            left: -130%;
+            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 1));
+            mix-blend-mode: overlay;
+            transform: scale(.8);
+
+            .card-content {
+                display: none;
+            }
+        }
+    }
+}
