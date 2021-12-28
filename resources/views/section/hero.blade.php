@@ -10,7 +10,21 @@
             <li><a href="/shop">Shop</a></li>
             <li><a href="/theater">Theater</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/logout">Logout</a></li>
+        @if (Route::has('login'))
+        @auth
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+               <button>
+                   Logout
+               </button>
+            </form>
+        @else
+            <li><a href="{{ route('login') }}">login</a></li>
+            @if (Route::has('register'))
+                <li><a href="{{ route('register') }}">register</a></li>
+            @endif
+        @endauth
+        @endif
         </ul>
     </nav>
 

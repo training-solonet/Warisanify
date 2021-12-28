@@ -12,6 +12,12 @@
     <div class="container-fluid">
       <div class="row mb-3">
         <a href="{{ route('barang.create') }}"><button class="btn-lg btn-warning">Tambah Data</button></a>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button class="btn-lg btn-danger">
+                logout
+            </button>
+        </form>
       </div>
       <div class="row">
         <div class="col-12">
@@ -33,7 +39,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                  
+
                   @foreach ($barang as $dataBarang )
                   <tr>
                     <td>{{ $dataBarang->namaBarang }}</td>

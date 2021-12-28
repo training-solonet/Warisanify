@@ -12,25 +12,9 @@ class homeController extends Controller
         $role = Auth::user()->role;
 
         if ($role === 'admin') {
-            return view('index');
+            return redirect()->route('barang.index');
         } else {
-            return view('dashboard');
+            return view('index');
         }
     }
-
-    // public function authenticate(Request $request)
-    // {
-    //     $credentials = $request->validate([
-    //         'username' => ['required'],
-    //         'password' => ['required'],
-    //     ]);
-
-    //     if (Auth::attempt($credentials)) {
-    //         $request->session()->regenerate();
-
-    //         return redirect()->intended('dashboard');
-    //     }
-
-    //     return back()->with('loginError', 'Login Failed');
-    // }
 }
