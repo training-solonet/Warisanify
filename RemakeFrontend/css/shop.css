@@ -1,0 +1,338 @@
+@font-face {
+  font-family: "Scheherazade New";
+  src: url(Font/ScheherazadeNew-Regular.ttf);
+}
+
+@font-face {
+  font-family: "GT Alpina Fine Trial Rg";
+  src: url(Font/GT-Alpina-Fine-Regular-Trial);
+}
+
+@font-face {
+  font-family: "OptimusPrinceps";
+  src: url(Font/OptimusPrinceps.ttf);
+}
+
+@font-face {
+  font-family: "GT Alpina Trial Lt";
+  src: url(Font/GT-Alpina-Light-Trial.woff2) format(woff2);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+nav.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 4em;
+          column-gap: 4em;
+  background-size: cover;
+  background-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-image: url("pict/navbar.png");
+  width: 100%;
+  height: 100px;
+  margin-bottom: 48px;
+}
+
+nav.navbar .logo {
+  font-size: 2vw;
+  color: #fff;
+  text-decoration: none;
+  font-family: "OptimusPrinceps";
+}
+
+nav.navbar .nav-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 35%;
+  list-style-type: none;
+  font-size: 1.5vw;
+}
+
+nav.navbar .nav-list li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+section.helper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 60%;
+  margin: auto;
+  margin-bottom: 84px;
+}
+
+section.helper .search {
+  width: 50%;
+}
+
+section.helper .search form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+section.helper .search form input {
+  width: 80%;
+  height: 45px;
+  padding: 5px;
+  border-radius: unset;
+  border-right: unset;
+}
+
+section.helper .search form .search-button {
+  background-color: #000;
+  border: #000;
+  width: 100px;
+  height: 45px;
+  color: #fff;
+}
+
+section.helper .search .search-button:hover {
+  cursor: pointer;
+}
+
+section.helper .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 3em;
+          column-gap: 3em;
+}
+
+section.helper .right .cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+section.helper .right .cart img {
+  width: 45px;
+}
+
+section.helper .right .cart img:hover {
+  cursor: pointer;
+}
+
+section.helper .right a {
+  text-decoration: none;
+  color: #000;
+}
+
+section.helper .right a .profil {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: .5em;
+          column-gap: .5em;
+}
+
+section.helper .right a .profil .circle {
+  border: 3px solid #000;
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
+  border-radius: 45px;
+}
+
+section.helper .right a .profil .circle img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+section.helper .right a .profil p {
+  font-size: 1.2vw;
+}
+
+section.main-content {
+  width: 60%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (268px)[auto-fill];
+      grid-template-columns: repeat(auto-fill, 268px);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  row-gap: 64px;
+  margin: auto;
+}
+
+section.main-content img {
+  width: 268px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+section.main-content .card-content {
+  position: relative;
+  top: -30px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 80%;
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 10px 17px 0px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 10px 17px 0px rgba(0, 0, 0, 0.3);
+  margin-bottom: 84px;
+}
+
+section.main-content .card-content h2:first-child,
+section.main-content .card-content p {
+  font-family: "GT Alpina Fine Trial Rg";
+}
+
+section.main-content .card-content p {
+  font-weight: lighter;
+  font-size: .8em;
+}
+
+section.main-content .card-content h2:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-family: "Scheherazade New";
+  font-weight: lighter;
+  margin-top: 16px;
+}
+
+section.main-content .card-content > * {
+  font-weight: unset;
+}
+
+footer.footer {
+  height: 400px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1))), url("pict/footer.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1)), url("pict/footer.png");
+  background-position: center;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+footer.footer .footer-content {
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer.footer .footer-logo {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 3em;
+}
+
+footer.footer .footer-logo a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "OptimusPrinceps";
+}
+
+footer.footer .find-us {
+  font-family: "GT Alpina Fine Trial Rg";
+}
+
+footer.footer .find-us h1 {
+  color: #fff;
+  font-weight: unset;
+  margin-bottom: 24px;
+}
+
+footer.footer .find-us .find-us-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 16px;
+  list-style-type: none;
+}
+
+footer.footer .find-us .find-us-list li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer.footer .contact-us {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+footer.footer .contact-us h1 {
+  font-weight: unset;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+footer.footer .contact-us a {
+  color: #fff;
+  text-decoration: none;
+}
+/*# sourceMappingURL=shop.css.map */

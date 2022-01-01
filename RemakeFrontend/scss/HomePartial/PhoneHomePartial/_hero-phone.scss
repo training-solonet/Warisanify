@@ -1,0 +1,17 @@
+section.hero {
+    .navbar {
+        .nav-list {
+            display: none;
+        }
+    }
+
+    .hero-text {
+        width: 100%;
+        font-size: 1em;
+        align-items: center;
+        justify-items: flex-end;
+        text-align: center;
+        top: 200px;
+        right: 0;
+    }
+}
