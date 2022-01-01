@@ -1,0 +1,82 @@
+section.membership {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    font-family: $GTAlpinaFineTrialRg;
+    gap: 2rem;
+
+    h1 {
+        font-size: 3em;
+    }
+
+    p {
+        font-size: 2em;
+    }
+
+    .upgrade-membership {
+        padding: 1rem;
+        background-color: #000;
+        border: 3px solid #000;
+        font-size: 2em;
+        font-family: $GTAlpinaFineTrialRg;
+        color: #fff;
+        cursor: pointer;
+        transition: .5s ease all;
+    }
+
+    .upgrade-membership:hover {
+        background-color: #fff;
+        color: #000;
+    }
+
+
+
+
+
+
+
+
+
+    // display: grid;
+    // justify-content: center;
+    // align-items: center;
+    // column-gap: 3rem;
+    // grid-auto-flow: column;
+    // grid-template-columns: 20% 5px 30% auto;
+    // width: 80%;
+    // height: fit-content;
+    // margin: auto;
+    // font-family: "GT Alpina Fine Trial Rg";
+
+    // h1 {
+    //     font-size: 3vw;
+    // }
+
+    // hr {
+    //     height: 100%;
+    //     width: .3vw;
+    //     background-color: #000;
+    //     border: none;
+    // }
+
+    // p {
+    //     font-size: 1.6vw;
+    // }
+
+    // button.upgrade-membership {
+    //     padding: 1rem 1.5rem;
+    //     background-color: #000;
+    //     border: 3px solid #000;
+    //     font-size: 1.8vw;
+    //     font-family: "GT Alpina Fine Trial Rg";
+    //     color: #fff;
+    //     cursor: pointer;
+    //     transition: .3s ease all;
+    // }
+
+    // button.upgrade-membership:hover {
+    //     background-color: #fff;
+    //     color: #000;
+    // }
+}

@@ -1,0 +1,52 @@
+body {
+    overflow: hidden;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Scheherazade New", serif;
+    font-size: 20px;
+}
+
+.form-control:focus {
+    border-color: #9e3535;
+    box-shadow: 0 0 5px rgb(133, 31, 31);
+}
+
+.form-control {
+    border-radius: 0;
+    border: 1px solid #707070;
+}
+
+.btn {
+    border-radius: 0;
+    background-color: #714e2f;
+    border: none;
+    font-size: 28px;
+    height: 65px;
+}
+
+.btn:hover {
+    background-color: #91592b;
+}
+
+.right {
+    position: relative;
+}
+
+.left {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+        url(../pict/bg.png);
+    background-size: cover;
+    background-position: 0%;
+    z-index: 1;
+    object-fit: cover;
+}
+
+
+@media screen and (max-width: 576px) {
+    .left {
+        display: none;
+    }
+}
