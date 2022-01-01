@@ -2,15 +2,15 @@
 
 
 use App\Models\Barang;
+use App\Models\Kategori;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
-use App\Models\Kategori;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
-
+use App\Http\Controllers\KeranjangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +32,24 @@ Route::get('/shop', function () {
     return view('shop', compact('barang'));
 });
 
+
+Route::resource('/barang', BarangController::class);
+
+Route::resource('/kategori', KategoriController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::post('/add-to-cart', [KeranjangController::class, 'addToCart']);    
+});
+
+
+
+Route::get('/regist', function () {
+    return view('regist');
+});
+
 // Route::get('/regist', function () {
 //     return view('regist');
 // });
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

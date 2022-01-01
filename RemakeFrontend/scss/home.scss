@@ -1,0 +1,39 @@
+@import 'fontFace';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: unset;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 200px
+}
+
+@import 'HomePartial/hero';
+@import 'HomePartial/bestSeller';
+@import 'HomePartial/about';
+@import 'HomePartial/membership';
+@import 'HomePartial/offering';
+@import 'HomePartial/footer';
+
+@media screen and (min-width: 768px) {
+    // @import 'HomePartial/TabletHomePartial/hero-tablet';
+    // @import 'HomePartial/TabletHomePartial/bestSeller-tablet';
+    // @import 'HomePartial/TabletHomePartial/about-tablet';
+    // @import 'HomePartial/TabletHomePartial/membership-tablet';
+    // @import 'HomePartial/TabletHomePartial/offering-tablet';
+    // @import 'HomePartial/TabletHomePartial/footer-tablet';
+}

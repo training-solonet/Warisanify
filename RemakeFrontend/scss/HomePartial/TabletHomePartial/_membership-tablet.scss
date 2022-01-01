@@ -1,0 +1,23 @@
+section.membership {
+    width: 90%;
+
+    h1 {
+        font-size: 30px;
+
+        span {
+            display: block;
+        }
+    }
+
+    hr {
+        width: 5px;
+    }
+
+    p {
+        font-size: 24px;
+    }
+
+    button.upgrade-membership {
+        font-size: 16px;
+    }
+}
