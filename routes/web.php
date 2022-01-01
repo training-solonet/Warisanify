@@ -27,11 +27,11 @@ Route::get('/', function () {
     return view('index');
 });
 
-
-Route::get('/shop', function(){
+Route::get('/shop', function () {
     $barang = Barang::with('kategori')->get();
     return view('shop', compact('barang'));
 });
+
 
 Route::resource('/barang', BarangController::class);
 
@@ -40,11 +40,16 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/add-to-cart', [KeranjangController::class, 'addToCart']);    
 });
 
-//master
+
 
 Route::get('/regist', function () {
     return view('regist');
 });
+
+// Route::get('/regist', function () {
+//     return view('regist');
+// });
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -54,19 +59,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('redirects', [homeController::class, 'index']);
 
-    // Route::middleware(['onlyAdmin'])->group(function () {
-    //     Route::get('admin', function () {
-    //         return view('index');
-    //     });
+    Route::group(['prefix' => 'admin', 'middleware' => 'onlyAdmin'], function () {
 
-    // });
+        Route::resource('/barang', BarangController::class);
 
-    Route::group(['prefix' => 'redirects', 'middleware' => 'onlyAdmin'], function () {
-        Route::get('admin', function () {
-            return view('index');
-        });
-        Route::get('kategori', function () {
-            return view('kategori');
-        });
+        Route::resource('/kategori', KategoriController::class);
     });
 });
