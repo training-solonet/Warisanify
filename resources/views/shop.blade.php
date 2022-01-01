@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{{ url('css/shop.css') }}">
+    <title>Shop</title>
 </head>
 
 <body>
@@ -22,9 +23,9 @@
 
     <section class="helper">
         <div class="search">
-            <form action="">
-                <input type="text" placeholder="Search here">
-                <button class="search-button">P</button>
+            <form action="shop" method="GET">
+                <input name="search" type="text" placeholder="Search here">
+                <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
             </form>
         </div>
 
@@ -63,8 +64,8 @@
             </div>
         </div>
         @endforeach
-        
-        
+
+
 
         {{-- <div class="card">
             <img src="{{ url('pict/wayang.png') }}" alt="">

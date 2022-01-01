@@ -16,14 +16,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Barang::factory(10)->create();
+        Barang::factory(12)->create();
         Kategori::factory(5)->create();
         User::create([
-            'name' => 'cek1',
-            'username' => 'cek1',
+            'username' => 'user',
             'role' => 'user',
-            'email' => 'cek1@gamil.com',
-            'password' => 'cek1'
+            'password' => '12341234'
+        ]);
+
+        User::create([
+            'username' => 'admin',
+            'role' => 'admin',
+            'password' => '12341234'
         ]);
     }
 }

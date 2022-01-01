@@ -10,7 +10,9 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\shopController;
 use App\Http\Controllers\KeranjangController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +29,12 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/shop', function () {
-    $barang = Barang::with('kategori')->get();
-    return view('shop', compact('barang'));
-});
+// Route::get('/shop', function () {
+//     $barang = Barang::with('kategori')->get();
+//     return view('shop', compact('barang'));
+// });
+
+Route::get('/shop', [shopController::class, 'index']);
 
 
 Route::resource('/barang', BarangController::class);

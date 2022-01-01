@@ -1,4 +1,4 @@
-@extends('adminPage.template')
+x@extends('adminPage.template')
 
 @section('content')
 <div class="container d-flex flex-column mt-5">
