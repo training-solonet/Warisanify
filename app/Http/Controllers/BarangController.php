@@ -47,7 +47,7 @@ class BarangController extends Controller
             'idKategori' => 'required'
         ]);
 
-        $namaGambar = time().'.'.$request->gambar->extension();
+        $namaGambar = time() . '.' . $request->gambar->extension();
         $request->gambar->move(public_path('pict'), $namaGambar);
 
 
