@@ -1,11 +1,12 @@
 <?php
 
 use App\Models\Barang;
+use App\Models\Kategori;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
-use App\Models\Kategori;
+use App\Http\Controllers\KeranjangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,8 @@ Route::get('/shop', function(){
 Route::resource('/barang', BarangController::class);
 
 Route::resource('/kategori', KategoriController::class);
+// Route::resource('/keranjang', KeranjangController::class);
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('/add-to-cart', [KeranjangController::class, 'addToCart']);    
+});

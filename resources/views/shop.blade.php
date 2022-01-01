@@ -54,6 +54,12 @@
                 <h2>{{ $dataBarang->namaBarang }}</h2>
                 <a href="#">{{ $dataBarang->kategori->namaKategori }}</a>
                 <h2>Rp. {{ $dataBarang->harga }}</h2>
+                <form method="POST" action="/add-to-cart">
+                    @csrf
+                    <input type="hidden" name="id_barang" value="{{ $dataBarang->id }}">
+                    <input type="number" name="jumlah_barang">
+                    <button>Masuk Keranjang</button>
+                </form>
             </div>
         </div>
         @endforeach
