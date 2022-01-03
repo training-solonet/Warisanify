@@ -17,7 +17,8 @@ class Barang extends Model
         'idKategori'
     ];
 
-    public function kategori(){
+    public function kategori()
+    {
         return $this->belongsTo(Kategori::class, 'idKategori');
     }
 }

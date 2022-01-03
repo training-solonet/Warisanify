@@ -163,6 +163,9 @@ section.helper .right a .profil {
 }
 
 section.helper .right a .profil .circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 3px solid #000;
   width: 45px;
   height: 45px;

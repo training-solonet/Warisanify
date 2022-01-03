@@ -41,7 +41,7 @@ Route::resource('/barang', BarangController::class);
 
 Route::resource('/kategori', KategoriController::class);
 Route::middleware(['auth'])->group(function () {
-    Route::resource('/add-to-cart', KeranjangController::class);    
+    Route::resource('add-to-cart', KeranjangController::class);
 });
 
 

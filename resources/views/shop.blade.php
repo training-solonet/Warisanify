@@ -38,16 +38,23 @@
 
         <div class="right">
             <div class="cart">
-                <img src="{{ url('pict/shopping-cart.png') }}" alt="" srcset="">
+
+                <a href="{{ route('add-to-cart.index') }}"><img src="{{ url('pict/shopping-cart.png') }}" alt="" srcset=""></a>
             </div>
 
             <a href="">
                 <div class="profil">
                     <div class="circle">
-                        <img src="" alt="" srcset="">
+                        {{-- <img src="" alt="" srcset=""> --}}
+                        <i class="fas fa-user"></i>
                     </div>
-
-                    <p>Username</p>
+                    @if (Route::has('login'))
+                    @auth
+                        {{ Auth::user()->username }}
+                    @else
+                        <p>Username</p>
+                    @endauth
+                    @endif
                 </div>
             </a>
         </div>

@@ -6,6 +6,7 @@ use App\Models\Barang;
 use App\Models\Keranjang;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class KeranjangController extends Controller
@@ -17,8 +18,11 @@ class KeranjangController extends Controller
      */
     public function index()
     {
-        $keranjang = Keranjang::get();
-        return $keranjang;
+
+        $keranjang = Keranjang::with('barang')->get();
+        // $keranjang = DB::table('keranjang')->join('barang', 'keranjang.id_barang', '=', 'barang.id')->select('keranjang.id', 'barang.id')->get();
+        // return $keranjang;
+        return view('keranjangPage.index', compact('keranjang'));
     }
 
     /**
@@ -39,20 +43,19 @@ class KeranjangController extends Controller
      */
     public function store(Request $request)
     {
-            $jumlah_barang = $request->jumlah_barang;
-            $id_barang = $request->id_barang;
+        $jumlah_barang = $request->jumlah_barang;
+        $id_barang = $request->id_barang;
 
-            if(Auth::check()){
+        if (Auth::check()) {
             $barangCek = Barang::where('id', $id_barang)->first();
             $keranjang = Keranjang::where('id_barang', $id_barang)->first();
 
-            if($barangCek){
+            if ($barangCek) {
 
-                if(Keranjang::where('id_barang', $id_barang)->where('id_user', Auth::id())->exists()){
+                if (Keranjang::where('id_barang', $id_barang)->where('id_user', Auth::id())->exists()) {
 
                     $keranjang->update(['jumlah_barang' => $keranjang->jumlah_barang + $request->jumlah_barang]);
                     return redirect()->route('shop')->with('success', 'already');
-
                 } else {
                     $barangKeranjang = new Keranjang();
                     $barangKeranjang->id_barang = $id_barang;
@@ -61,9 +64,8 @@ class KeranjangController extends Controller
                     $barangKeranjang->save();
 
                     return redirect()->route('shop')->with('success', 'success added');
-
                 }
-                // return view('keranjangPage.index');
+                // return redirect()->route('add-to-cart.index')->compact('id_barang');
             }
         }
     }

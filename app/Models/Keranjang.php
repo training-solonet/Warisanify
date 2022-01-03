@@ -16,11 +16,12 @@ class Keranjang extends Model
         'jumlah_barang'
     ];
 
-    public function barang() {
-        return $this->hasMany(Barang::class, 'id_barang');
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class, 'id_barang');
     }
-    public function user() {
-        return $this->hasMany(User::class, 'id_user');
-    }
-
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class, 'id_user');
+    // }
 }

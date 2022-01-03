@@ -20,6 +20,7 @@ class shopController extends Controller
         } else {
             $barang = Barang::with('kategori')->get();
         }
+        // return $barang;
 
         return view('shop', compact('barang'));
     }
