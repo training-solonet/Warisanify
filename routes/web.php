@@ -34,14 +34,14 @@ Route::get('/', function () {
 //     return view('shop', compact('barang'));
 // });
 
-Route::get('/shop', [shopController::class, 'index']);
+Route::get('/shop', [shopController::class, 'index'])->name('shop');
 
 
 Route::resource('/barang', BarangController::class);
 
 Route::resource('/kategori', KategoriController::class);
 Route::middleware(['auth'])->group(function () {
-    Route::post('/add-to-cart', [KeranjangController::class, 'addToCart']);    
+    Route::resource('/add-to-cart', KeranjangController::class);    
 });
 
 

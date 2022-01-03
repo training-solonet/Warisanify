@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    CEKK HALAMAN
-    {{ $jumlah_barang }}
+
+
 </body>
 </html>

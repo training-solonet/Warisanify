@@ -11,6 +11,13 @@
 </head>
 
 <body>
+    @if ($message = Session::get('success'))
+    <script>
+        alert('{{ $message }}');
+    </script>
+    @endif
+
+</body>
     <nav class="navbar">
         <a class="logo" href="/">Warisanify</a>
         <ul class="nav-list">
@@ -55,10 +62,10 @@
                 <h2>{{ $dataBarang->namaBarang }}</h2>
                 <a href="#">{{ $dataBarang->kategori->namaKategori }}</a>
                 <h2>Rp. {{ $dataBarang->harga }}</h2>
-                <form method="POST" action="/add-to-cart">
+                <form method="POST" action="{{ route('add-to-cart.store') }}">
                     @csrf
                     <input type="hidden" name="id_barang" value="{{ $dataBarang->id }}">
-                    <input type="number" name="jumlah_barang">
+                    <input value="1" type="number" name="jumlah_barang">
                     <button>Masuk Keranjang</button>
                 </form>
             </div>
