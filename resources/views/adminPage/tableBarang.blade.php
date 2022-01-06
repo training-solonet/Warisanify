@@ -11,13 +11,26 @@
 <section class="content">
     <div class="container-fluid">
       <div class="row mb-3">
-        <a href="{{ route('barang.create') }}"><button class="btn-lg btn-warning">Tambah Data</button></a>
-        <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button class="btn-lg btn-danger">
-                logout
-            </button>
-        </form>
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                {{-- <a href="{{ route('barang.create') }}"><button class="btn-lg btn-warning">Tambah Data</button></a> --}}
+                    <button type="button" class="btn-lg btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Tambah Produk
+                </button>
+
+              </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button class="btn-lg btn-danger">
+                        logout
+                    </button>
+                </form>
+              </li>
+          </ul>
+
       </div>
       <div class="row">
         <div class="col-12">
@@ -48,13 +61,16 @@
                     <td>{{ $dataBarang->detailProduk }}</td>
                     <td>{{ $dataBarang->kategori->namaKategori }}</td>
                     <td style="box-sizing:border-box; display: flex">
-                      <a class="btn btn-primary" href="{{ route('barang.edit', $dataBarang->id) }}">
-                        Edit
-                      </a>
+                      {{-- <a href="#" class="btn btn-primary btn-edit" data-id="{{ $dataBarang->id }}">
+                        <i class="fas fa-edit"></i>
+                      </a> --}}
+                      <button class="btn btn-primary btn-edit" data-bs-toggle="modal" data-bs-target="#editModal">
+                        <i class="fas fa-edit"></i>
+                    </button>
                       <form method="POST" action="{{ route('barang.destroy', $dataBarang->id) }}">
                         @csrf
                         @method('DELETE')
-                          <button class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?')">Hapus</button>
+                          <button class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?')"><i class="fas fa-trash"></i></button>
                       </form>
                     </td>
                   </tr>
@@ -70,6 +86,12 @@
       <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
+
+
+    <!-- Modal -->
+    @include('adminPage.modal.createModal')
+    @include('adminPage.modal.editModal')
+
   </section>
   <!-- /.content -->
 

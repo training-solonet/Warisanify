@@ -44,11 +44,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('add-to-cart', KeranjangController::class);
 });
 
-
-
-Route::get('/regist', function () {
-    return view('regist');
-});
+// Route::get('/modal', function () {
+//     return view('adminPage.modal.createModal');
+// });
 
 // Route::get('/regist', function () {
 //     return view('regist');

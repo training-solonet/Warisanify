@@ -17,7 +17,8 @@ class BarangController extends Controller
     public function index()
     {
         $barang = Barang::with('kategori')->get();
-        return view('adminPage.tableBarang', compact('barang'));
+        $kategori = Kategori::get();
+        return view('adminPage.tableBarang', compact('barang', 'kategori'));
     }
 
     /**
@@ -28,6 +29,7 @@ class BarangController extends Controller
     public function create()
     {
         $kategori = Kategori::get();
+        // return $kategori;
         return view('adminPage.create', compact('kategori'));
     }
 
@@ -82,8 +84,7 @@ class BarangController extends Controller
     {
         $barang = Barang::with('kategori')->find($id);
         $kategori = Kategori::get();
-        // return $barang;
-        return view('adminPage.edit', compact('barang', 'kategori'));
+        return view('adminPage.modal.editModal', compact('barang', 'kategori'));
     }
 
     /**

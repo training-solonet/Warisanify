@@ -61,14 +61,7 @@
 
     <section class="main-content">
 
-
-        @foreach ($keranjang as $p)
-            {{-- @foreach ($p as $dataKeranjang)
-            @endforeach --}}
-            {{ $p->barang->id }}
-
-        @endforeach
-        {{-- @foreach ($keranjang as $dataKeranjang )
+        @foreach ($keranjang as $dataKeranjang )
         <div class="card">
             <img src="{{ url('pict/wayang.png') }}" alt="">
             <div href="#" class="card-content">
@@ -83,7 +76,7 @@
                 </form>
             </div>
         </div>
-        @endforeach --}}
+        @endforeach
 
     </section>
 
