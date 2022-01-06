@@ -13,6 +13,8 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\shopController;
 use App\Http\Controllers\KeranjangController;
 
+use App\Http\Controllers\Admin\KategoriController as AjaxKategori;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,8 @@ use App\Http\Controllers\KeranjangController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::resource('ajax', AjaxKategori::class);
 
 Route::get('/', function () {
     return view('index');

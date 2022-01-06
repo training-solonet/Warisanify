@@ -24,13 +24,18 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr class="text-center">
+                  <th>No</th>
                   <th>Nama Kategori</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
+                  @php
+                    $no = 1;
+                  @endphp
                   @foreach ($kategori as $dataKategori )
                   <tr>
+                    <td>{{ $no++ }}</td>
                     <td>{{ $dataKategori->namaKategori }}</td>
                     <td style="box-sizing:border-box; display: flex; justify-content: space-around">
                       <a class="btn btn-primary" href="{{ route('kategori.edit', $dataKategori->id) }}">
