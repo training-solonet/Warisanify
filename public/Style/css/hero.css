@@ -1,0 +1,59 @@
+section.hero {
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../pict/hero.png);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../pict/hero.png);
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+section.hero .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
+}
+
+section.hero .navbar .logo {
+  font-size: 2.5em;
+  color: #fff;
+  text-decoration: none;
+  height: auto;
+}
+
+section.hero .navbar .nav-list {
+  display: none;
+}
+
+section.hero .navbar i {
+  position: absolute;
+  right: 1rem;
+  color: #fff;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+section.hero .hero-text {
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 60%;
+  padding: 2rem;
+  text-align: center;
+}
+/*# sourceMappingURL=hero.css.map */

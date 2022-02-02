@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACYI,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK;EDVnC,AAAA,OAAO,AAAA,YAAY,CAAC;IAChB,KAAK,EAAE,IAAI;GAUd;EAXD,AAII,OAJG,AAAA,YAAY,CAIf,eAAe,CAAC;IAEZ,KAAK,EAAE,IAAI;IACX,OAAO,EAAE,IAAI;IACb,qBAAqB,EAAE,kCAAkC;IACzD,kBAAkB,EAAE,WAAW;GAClC",
+    "sources": [
+        "../scss/MediumResponsive/bestSellerMedium.scss",
+        "../scss/variabel.scss"
+    ],
+    "names": [],
+    "file": "bestSellerMedium.css"
+}

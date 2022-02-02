@@ -1,0 +1,61 @@
+@import '../variabel';
+@include md {
+    section.hero {
+        .navbar {
+            justify-content: space-around;
+            align-items: center;
+
+            .nav-list {
+                display: flex;
+                list-style: none;
+                font-size: 1.5em;
+                width: 40%;
+                height: 50px;
+                justify-content: space-between;
+                align-items: center;
+
+                li a {
+                    color: #fff;
+                    text-decoration: none;
+                    height: fit-content;
+                }
+            }
+
+            i {
+                display: none;
+            }
+
+            .login-btn {
+                padding: .6rem;
+                background-color: #fff;
+                border: none;
+                // font-family: variabel.$GTAlpinaFineTrialRg;
+                font-weight: 500;
+                font-size: 1.5em;
+                color: #000;
+                cursor: pointer;
+                transition: .5s ease all;
+            }
+
+            .login-btn:hover {
+                background-color: #714E2F;
+                color: #fff;
+            }
+        }
+
+        .hero-text {
+            // background-color: red;
+            font-size: 2em;
+            height: 70%;
+            text-align: right;
+            width: 50%;
+            justify-content: flex-end;
+            margin-left: auto;
+
+            h3 {
+                font-size: .8jjbj8 jjjoem;
+                font-weight: unset;
+            }
+        }
+    }
+}

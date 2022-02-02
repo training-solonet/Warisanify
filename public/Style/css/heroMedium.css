@@ -1,0 +1,64 @@
+@media screen and (min-width: 768px) {
+  section.hero .navbar {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  section.hero .navbar .nav-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+    font-size: 1.5em;
+    width: 40%;
+    height: 50px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  section.hero .navbar .nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  section.hero .navbar i {
+    display: none;
+  }
+  section.hero .navbar .login-btn {
+    padding: .6rem;
+    background-color: #fff;
+    border: none;
+    font-weight: 500;
+    font-size: 1.5em;
+    color: #000;
+    cursor: pointer;
+    -webkit-transition: .5s ease all;
+    transition: .5s ease all;
+  }
+  section.hero .navbar .login-btn:hover {
+    background-color: #714E2F;
+    color: #fff;
+  }
+  section.hero .hero-text {
+    font-size: 2em;
+    height: 70%;
+    text-align: right;
+    width: 50%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    margin-left: auto;
+  }
+  section.hero .hero-text h3 {
+    font-size: .8jjbj8 jjjoem;
+    font-weight: unset;
+  }
+}
+/*# sourceMappingURL=heroMedium.css.map */

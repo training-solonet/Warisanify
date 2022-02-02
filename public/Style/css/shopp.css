@@ -1,0 +1,230 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+nav.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 4em;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  background-image: url("../pict/navbar.png");
+  width: 100%;
+  height: 100px;
+  margin-bottom: 48px;
+}
+nav.navbar .logo {
+  font-size: 2vw;
+  color: #fff;
+  text-decoration: none;
+  font-family: "OptimusPrinceps";
+}
+nav.navbar .nav-list {
+  display: flex;
+  justify-content: space-around;
+  width: 35%;
+  list-style-type: none;
+  font-size: 1.5vw;
+}
+nav.navbar .nav-list li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+section.helper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  margin: auto;
+  margin-bottom: 84px;
+}
+section.helper .search {
+  width: 50%;
+}
+section.helper .search form {
+  display: flex;
+}
+section.helper .search form input {
+  width: 80%;
+  height: 45px;
+  padding: 5px;
+  border-radius: unset;
+  border-right: unset;
+}
+section.helper .search form .search-button {
+  background-color: #000;
+  border: #000;
+  width: 100px;
+  height: 45px;
+  color: #fff;
+}
+section.helper .search form .fa-search {
+  color: #fff;
+}
+section.helper .search .search-button:hover {
+  cursor: pointer;
+}
+section.helper .right {
+  display: flex;
+  column-gap: 3em;
+  text-decoration: none;
+  color: #000;
+}
+section.helper .right .cart {
+  display: flex;
+  justify-content: flex-end;
+}
+section.helper .right .cart img {
+  width: 45px;
+}
+section.helper .right .cart img:hover {
+  cursor: pointer;
+}
+section.helper .right .profil {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5em;
+}
+section.helper .right .profil .circle {
+  border: 3px solid #000;
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
+  border-radius: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+section.helper .right .profil .circle img {
+  object-fit: cover;
+  object-position: center;
+  width: 45px;
+}
+section.helper .right .profil .username {
+  font-size: 1.2vw;
+  text-decoration: none;
+  color: #000;
+}
+
+section.main-content {
+  width: 65%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 268px);
+  justify-content: space-between;
+  row-gap: 64px;
+  margin: auto;
+}
+section.main-content img {
+  width: 268px;
+  object-fit: cover;
+  object-position: center;
+}
+section.main-content img:hover {
+  transform: scale(1.1);
+}
+section.main-content .card-content {
+  position: relative;
+  top: -30px;
+  min-height: 180px;
+  background-color: #fff;
+  width: 80%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  box-shadow: 0px 10px 17px 0px rgba(0, 0, 0, 0.3);
+  margin-bottom: 84px;
+}
+section.main-content .card-content h2:first-child,
+section.main-content .card-content a {
+  font-family: "GT Alpina Fine Trial Rg";
+}
+section.main-content .card-content a {
+  font-weight: lighter;
+  font-size: 0.8em;
+  text-decoration: none;
+  color: #000;
+}
+section.main-content .card-content a:hover {
+  color: gray;
+}
+section.main-content .card-content h2:last-child {
+  position: absolute;
+  bottom: 0;
+  right: 1em;
+  font-family: "Scheherazade New";
+  font-weight: lighter;
+}
+section.main-content .card-content > * {
+  font-weight: unset;
+}
+
+footer.footer {
+  height: 400px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1)), url("../pict/footer.png");
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
+footer.footer .footer-content {
+  width: 100%;
+  justify-content: space-around;
+  margin: auto;
+  display: flex;
+}
+footer.footer .footer-logo {
+  align-self: center;
+  font-size: 3em;
+}
+footer.footer .footer-logo a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "OptimusPrinceps";
+}
+footer.footer .find-us {
+  font-family: "GT Alpina Fine Trial Rg";
+}
+footer.footer .find-us h1 {
+  color: #fff;
+  font-weight: unset;
+  margin-bottom: 24px;
+}
+footer.footer .find-us .find-us-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  list-style-type: none;
+}
+footer.footer .find-us .find-us-list li a {
+  color: #fff;
+  text-decoration: none;
+}
+footer.footer .contact-us {
+  display: flex;
+  flex-direction: column;
+}
+footer.footer .contact-us h1 {
+  font-weight: unset;
+  color: #fff;
+  margin-bottom: 24px;
+}
+footer.footer .contact-us a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=shopp.css.map */
