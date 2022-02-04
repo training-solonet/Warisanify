@@ -189,9 +189,12 @@
             type : "GET",
             dataType : "JSON",
             success : function(data){
+                console.log(data)
                 table.ajax.reload(null,false);
             },
             error : function (jqXHR, textStatus , errorThrown) {
+                console.log(data)
+
                 console.log(errorThrown);
             }
         });
@@ -202,6 +205,7 @@
             type : "GET",
             dataType : "JSON",
             success : function(data){
+                console.log(data)
                 table.ajax.reload(null,false);
             },
             error : function (jqXHR, textStatus , errorThrown) {

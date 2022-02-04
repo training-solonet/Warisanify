@@ -119,6 +119,7 @@
       console.log("cek")
     $('#errors_name').text('');
             $.get('/admin/product/' + id + '/edit', function (data) {
+                console.log(data);
                 $('#form')[0].reset();
                 $('#exampleModalLabel').html("Edit Post");
                 $('#product_modal').modal('show');
@@ -127,7 +128,7 @@
                 $('#name').val(data.name);
                 $('#regular_price').val(data.regular_price);
                 $('#sale_price').val(data.sale_price);
-                $('#category_id').val(data.category_id);
+            $('#category_id').val(data.category_id);
                 $('#description').val(data.description);
                 $('#stock_status').val(data.stock_status);
                 $('#quantity').val(data.quantity);

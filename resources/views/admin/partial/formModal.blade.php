@@ -47,7 +47,7 @@
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Stock Status</label>
-                <select class="form-select" aria-label="Default select example" name="stock_status" id="category_id">
+                <select class="form-select" aria-label="Default select example" name="stock_status" id="stock_status">
                     <option value="" disabled>Select Stock Status</option>
                     <option id="stock_status" value="instock">In Stock</option>
                     <option id="stock_status" value="outofstock">Out Of Stock</option> 

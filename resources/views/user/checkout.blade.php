@@ -59,8 +59,8 @@
     <div class="container">
         <div class="checkout-page">
             <div class="checkout-form">
-                <form action="" method="POST">
-
+                <form action="{{ route('payment.store') }}" method="POST">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-6 col-sm-12 col-xs-12">
                             <div class="checkout-title">
@@ -132,13 +132,14 @@
                                         @endforeach
                                     </ul>
                                     <ul class="sub-total">
-                                        <input type="hidden" id="subtotal_keranjang" value="{{ $subtotal }}">
-                                        <li>Subtotal <span class="count">Rp. <span id="subtotal_checkout">{{ number_format($subtotal) }}</span></span></li>
+                                        <input type="hidden" name="ongkir" id="ongkir" value="200000">
+                                        <li>Subtotal <span class="count">Rp. <span id="subtotal_checkout" value="{{ number_format($subtotal) }}">{{ number_format($subtotal) }}</span></span></li>
                                         <li>Ongkir <span class="count">Rp. <span id="total_ongkir">0</span></span></li>
                                     </ul>
                                     <ul class="sub-total">
                                         <li>Total <span class="count">Rp. <span id="total_checkout">0</span></span></li>
                                     </ul>
+                                    <button type="submit" class="btn btn-warning">Checkout</button>
                                 </div>
                             </div>
                         </div>
@@ -202,7 +203,7 @@
         document.getElementById("kurir").disabled = true;
         document.getElementById("service").disabled = true;
 
-        $("#total_checkout").number($('#subtotal_keranjang').val());
+        $("#total_checkout").number($('#subtotal_checkout').html());
 
     });
 
@@ -263,13 +264,15 @@
 
     $('#service').change(function() {
         var cost        = $(this).val();
-        var subtotal    = $('#subtotal_keranjang').val();
+        var subtotal    = $('#subtotal_checkout').text();
 
-        var totalCheckout = parseInt(cost) + parseInt(subtotal);
+        var totalCheckout = parseInt(cost) + parseInt(subtotal.replace(/,/g, ''));
         
         $("#total_ongkir").number(cost);
         $("#total_checkout").number(totalCheckout);
+        $("#ongkir").val(cost);
     });
+
 
 </script>
 </body>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
 class CekController extends Controller
@@ -20,18 +22,14 @@ class CekController extends Controller
 
     //     return $data;
     // }
-    public function index(Request $request){
+    public function index(){
 
-        $key = config('services.rajaongkir.key', '');
-
-        $response = Http::get('https://api.rajaongkir.com/starter/city', [
-            'key'          => $key,
-            'province'     => $request->get('province_id')
-        ]);
-
-        $data = json_decode($response, true);
-
-        return $data;
-
+        // return $request->ongkir;
+        $product = Cart::with('product')->where('user_id', Auth::id())->get();
+        $subtotal = 0;
+        foreach($product as $p){
+            $subtotal += $p->qty * $p->product->regular_price;
+        }
+        return $product;
     }
 }

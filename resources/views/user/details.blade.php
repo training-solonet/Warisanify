@@ -362,6 +362,7 @@
                 dataType: "JSON",
                 success: function(data) {
                     //reset variable
+                    console.log(data);
                     text = "";
                     total = 0;
                     //show cart
@@ -370,7 +371,6 @@
                     cart.forEach(loopCart);
                     document.getElementById("class-keranjang").innerHTML = text;
                     $("#cart_total").number(total);
-                    console.log(data);
 
                 },
                 error: function (jqXHR, textStatus , errorThrown) {

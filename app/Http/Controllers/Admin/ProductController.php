@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $categories = Category::select('id', 'name')->get();
+        $categorebies = Category::select('id', 'name')->get();
         $stocksStatus = Product::select('id', 'stock_status')->get();
         $products = Product::with('category')->orderByDesc('created_at')->get();
         if($request->ajax()) {

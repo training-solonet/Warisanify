@@ -22,8 +22,6 @@ class CartController extends Controller
      */
     public function index()
     {   
-        // $productQty = Cart::where('user_id', Auth::user()->id)->select('id', 'product_id')->get();
-        // return $productQty;
         if(request()->ajax()){
         $products = Cart::with('product.category:id,name')->where('user_id', Auth::user()->id)->get();
         return Datatables::of($products)
@@ -55,12 +53,12 @@ class CartController extends Controller
                                     <div class="input-group">
                                         <span class="input-group-prepend">
                                         <button type="button" class="btn quantity-left-minus" data-type="minus"
-                                                    data-field=""><i class="ti-angle-left" onclick="decreaseQty('.$row->id.')"></i></button> </span>
+                                                data-field=""><i class="ti-angle-left" onclick="decreaseQty('.$row->id.')"></i></button> </span>
                                         <input id="cart_qty" type="text" name="cart_qty" onchange="edit_cart('.$row->id.')" class="form-control input-number"
                                             value="'.$row->qty.'"> <span class="input-group-prepend">
-                                        <button type="button"
-                                                class="btn quantity-right-plus" data-type="plus"
-                                                data-field="" onclick="increaseQty('.$row->id.')"><i class="ti-angle-right"></i></button></span>
+                                        <button type="button" class="btn quantity-right-plus" data-type="plus"
+                                                data-field=""><i class="ti-angle-right" onclick="increaseQty('.$row->id.')"></i></button></span>
+                                        </span>
                                     </div>
                         </div>';
 
@@ -132,6 +130,7 @@ class CartController extends Controller
     public function show($id)
     {
         $data = Cart::with('product')->where('user_id', Auth::user()->id)->get();
+        return $data;   
         return Response()->json($data);
     }
 
