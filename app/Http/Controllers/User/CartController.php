@@ -54,7 +54,7 @@ class CartController extends Controller
                                         <span class="input-group-prepend">
                                         <button type="button" class="btn quantity-left-minus" data-type="minus"
                                                 data-field=""><i class="ti-angle-left" onclick="decreaseQty('.$row->id.')"></i></button> </span>
-                                        <input id="cart_qty" type="text" name="cart_qty" onchange="edit_cart('.$row->id.')" class="form-control input-number"
+                                        <input id="cart_qty" type="number" step="1" min="1" max="" pattern="" inputmode="" name="cart_qty" onchange="edit_cart('.$row->id.')" class="form-control input-text"
                                             value="'.$row->qty.'"> <span class="input-group-prepend">
                                         <button type="button" class="btn quantity-right-plus" data-type="plus"
                                                 data-field=""><i class="ti-angle-right" onclick="increaseQty('.$row->id.')"></i></button></span>
@@ -130,7 +130,7 @@ class CartController extends Controller
     public function show($id)
     {
         $data = Cart::with('product')->where('user_id', Auth::user()->id)->get();
-        return $data;   
+        // return $data;   
         return Response()->json($data);
     }
 

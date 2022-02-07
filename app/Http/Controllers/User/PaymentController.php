@@ -60,7 +60,7 @@ class PaymentController extends Controller
         $midtrans_params = [
             'transaction_details' => [
                 'order_id' => rand(),
-                'gross_amount' => $subtotal
+                'gross_amount' => $subtotal,
             ],
             'cutomer_details' => [
                 'first_name' => Auth::user()->name

@@ -449,20 +449,20 @@
 
 <script>
 function addToCart(){
-        $.ajax({
-            url : "{{ route('cart.store') }}",
-            type: "POST",
-            data: $('#form').serialize(),
-            dataType: "JSON",
-            success: function(data){
-                sukses();
-                show_cart();
-            },
-            error: function (jqXHR, textStatus , errorThrown){ 
-                console.log(errorThrown);
-            }
-        });
-    }
+    $.ajax({
+        url : "{{ route('cart.store') }}",
+        type: "POST",
+        data: $('#form').serialize(),
+        dataType: "JSON",
+        success: function(data){
+            sukses();
+            show_cart();
+        },
+        error: function (jqXHR, textStatus , errorThrown){ 
+            console.log(errorThrown);
+        }
+    });
+}
 </script>
 </body>
 </html>

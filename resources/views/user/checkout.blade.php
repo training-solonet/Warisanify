@@ -132,7 +132,7 @@
                                         @endforeach
                                     </ul>
                                     <ul class="sub-total">
-                                        <input type="hidden" name="ongkir" id="ongkir" value="200000">
+                                        <input type="hidden" name="ongkir" id="ongkir" value="">
                                         <li>Subtotal <span class="count">Rp. <span id="subtotal_checkout" value="{{ number_format($subtotal) }}">{{ number_format($subtotal) }}</span></span></li>
                                         <li>Ongkir <span class="count">Rp. <span id="total_ongkir">0</span></span></li>
                                     </ul>

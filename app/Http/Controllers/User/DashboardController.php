@@ -24,8 +24,6 @@ class DashboardController extends Controller
 
             return view('user.shop', compact('products'));
         }
-
-       
     }
 
     /**
