@@ -10,11 +10,9 @@ class Checkout extends Model
     use HasFactory;
 
     protected $fillable = [
-        'sell_code',
-        'origin',
+        'user_id',
+        'product_id',
         'destination',
-        'courier',
-        'weight',
-        'alamat'
-    ];  
+        'status'
+    ];
 }

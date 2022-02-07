@@ -31,7 +31,8 @@
 
 <section class="helper">
     <div class="search">
-        <form action="shop" method="GET">
+        <form action="home
+        " method="GET">
             <input name="search" type="text" placeholder="Search here">
             <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
         </form>

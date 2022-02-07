@@ -13,9 +13,15 @@ class Category extends Model
         'name',
     ];
 
+    // protected $hidden = [
+    //     'created_at',
+    //     'updated_at'
+    // ];
+
     protected $table = 'categories';
 
-    public function product(){
+    public function product()
+    {
         return $this->hasMany(Product::class, 'category_id');
     }
 }

@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                
+
             </tbody>
         </table>
     </div>
@@ -36,46 +36,6 @@
 
 @section('script')
 <script type="text/javascript">
-  $(document).ready(function(){
-    $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-    $("#productTable").DataTable({
-        ordering: false,
-        processing : true,
-        serverSide : true,
-        ajax : {
-            url : "{{ route('admin.product.index') }}",
-            type : "GET"
-        },
-        columns: [
-            {
-                data : 'DT_RowIndex',
-                orderable : false,
-                searchable : false
-            },
-            {data: "image"},
-            {data: "name"},
-            {data: "regular_price"},
-            {data: "sale_price"},
-            {data: "category.name"},
-            {data: "description"},
-            {data: "stock_status"},
-            {data: "quantity"},
-            {data: "action"}
-        ],
-        columnDefs:
-        [{
-            "targets" : 1,
-            "render" : function (data, type, row, meta){
-                return "<img src=\"/Assets/images/" + data + "\" height=\"60\"/>";
-            }
-        }]
-    });
-  });
 
   function addProduct(){
     $('#errors_name').text('');
@@ -132,31 +92,8 @@
                 $('#stock_status').val(data.stock_status);
                 $('#quantity').val(data.quantity);
                 // $('#foto').val(data.foto);
-            })
-  }
-
-function deleteShowModal(id) {
-    $('#confirmation-delete-modal').modal('show');
-
-    $('#delete-button').click(function(){
-        $.ajax({
-            url: "/admin/product/" + id, //eksekusi ajax ke url ini
-            type: 'DELETE',
-            success: function (data) { //jika sukses
-                setTimeout(function() {
-                    $('#confirmation-delete-modal').modal('hide'); //sembunyikan konfirmasi modal
-                    var oTable = $('#productTable').dataTable();
-                    oTable.fnDraw(false); //reset datatable
-                });
-            }, error: function (){
-                console.log("error")
-            }
-        });
-    });
-}           
-            
-        
-//         
+            });
+  };
 </script>
 @endsection
 

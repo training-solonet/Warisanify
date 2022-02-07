@@ -15,12 +15,10 @@ class CreateCheckoutsTable extends Migration
     {
         Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
-            $table->string('sell_code');
-            $table->integer('origin');
-            $table->integer('destination');
-            $table->string('courier');
-            $table->integer('weight');
-            $table->text('alamat');
+            $table->string('user_id');
+            $table->string('product_id');
+            $table->string('destination');
+            $table->enum('status', ['pending', 'success']);
             $table->timestamps();
         });
     }
