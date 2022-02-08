@@ -1,0 +1,47 @@
+section.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../pict/hero.png);
+    // background-image: url(../pict/hero.png);
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+
+
+        .logo {
+            font-size: 2.5em;
+            // font-family: variabel.$OptimusPrinceps;
+            color: #fff;
+            text-decoration: none;
+            height: auto;
+        }
+
+        .nav-list {
+            display: none;
+        }
+
+        i {
+            position: absolute;
+            right: 1rem;
+            color: #fff;
+            font-size: 2em;
+            cursor: pointer;
+        }
+    }
+
+    .hero-text {
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 60%;
+        padding: 2rem;
+        // font-family: variabel.$GTAlpinaFineTrialRg;
+        text-align: center;
+    }
+}

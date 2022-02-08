@@ -1,0 +1,16 @@
+// $font: ('ScheherazadeNew': 'Scheherazade New',
+//     'GTAlpinaFineTrialRg': 'GT Alpina Fine Trial Rg',
+//     'OptimusPrinceps': 'OptimusPrinceps',
+//     'GTAlpinaTrialLt': 'GT Alpina Trial Lt'
+// );
+
+// $ScheherazadeNew: "Scheherazade New";
+// $GTAlpinaFineTrialRg: "GT Alpina Fine Trial Rg";
+// $OptimusPrinceps: "OptimusPrinceps";
+// $GTAlpinaTrialLt: "GT Alpina Trial Lt";
+
+@mixin md {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}

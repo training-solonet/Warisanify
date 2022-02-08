@@ -1,0 +1,24 @@
+section.membership {
+  width: 90%;
+}
+
+section.membership h1 {
+  font-size: 30px;
+}
+
+section.membership h1 span {
+  display: block;
+}
+
+section.membership hr {
+  width: 5px;
+}
+
+section.membership p {
+  font-size: 24px;
+}
+
+section.membership button.upgrade-membership {
+  font-size: 16px;
+}
+/*# sourceMappingURL=membership-tablet.css.map */

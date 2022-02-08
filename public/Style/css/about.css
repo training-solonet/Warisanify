@@ -1,0 +1,45 @@
+section.about {
+  width: 100%;
+  height: 400px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(..//pict/about.png);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(..//pict/about.png);
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 1rem;
+  margin: auto;
+}
+
+section.about h1 {
+  font-size: 2.5em;
+}
+
+section.about a button {
+  padding: 1rem 1.5rem;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 1.7em;
+  cursor: pointer;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+section.about a button:hover {
+  background-color: white;
+  color: #000;
+}
+/*# sourceMappingURL=about.css.map */
