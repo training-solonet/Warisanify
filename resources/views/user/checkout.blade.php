@@ -19,7 +19,7 @@
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css" integrity="sha512-gRH0EcIcYBFkQTnbpO8k0WlsD20x5VzjhOA1Og8+ZUAhcMUCvd+APD35FJw3GzHAP3e+mP28YcDJxVr745loHw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
     <!--Slick slider css-->
     <link rel="stylesheet" type="text/css" href="{{ url('multikart/assets/css/vendors/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('multikart/assets/css/vendors/slick-theme.css') }}">
@@ -61,6 +61,7 @@
             <div class="checkout-form">
                 <form action="{{ route('payment.store') }}" method="POST">
                     @csrf
+                    <input type="hidden" name="username" value="{{ Auth::user()->name }}">
                     <div class="row">
                         <div class="col-lg-6 col-sm-12 col-xs-12">
                             <div class="checkout-title">
@@ -79,7 +80,7 @@
                                 </div>
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                     <div class="field-label">Provinsi</div>
-                                    <select name="prov" id="prov">
+                                    <select name="province" id="prov">
                                         <option disabled selected>-- Pilih Provinsi --</option>
                                         @foreach ($province as $prov)
                                         <option value="{{ $prov['province_id'] }}">{{ $prov['province'] }}</option>
@@ -88,13 +89,13 @@
                                 </div>
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                     <div class="field-label">Kota</div>
-                                    <select name="kota" id="kota">
+                                    <select name="city" id="kota">
 
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4 col-sm-12 col-xs-12">
                                     <div class="field-label">Kurir</div>
-                                    <select name="kurir" id="kurir">
+                                    <select name="courier" id="kurir">
                                         <option disabled selected>-- Pilih Kurir --</option>
                                         <option value="jne">JNE</option>
                                         <option value="pos">POS</option>
@@ -103,13 +104,13 @@
                                 </div>
                                 <div class="form-group col-md-8 col-sm-12 col-xs-12">
                                     <div class="field-label">Service</div>
-                                    <select name="service" id="service">
+                                    <select name="cost" id="service">
                                         <option disabled selected>-- Pilih Service --</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                     <div class="field-label">Detail Alamat</div>
-                                    <textarea class="form-control" name="alamat" rows="3"></textarea>
+                                    <textarea class="form-control" name="origin" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +133,7 @@
                                         @endforeach
                                     </ul>
                                     <ul class="sub-total">
-                                        <input type="hidden" name="ongkir" id="ongkir" value="">
+                                        {{-- <input type="hidden" name="ongkir" id="ongkir" value=""> --}}
                                         <li>Subtotal <span class="count">Rp. <span id="subtotal_checkout" value="{{ number_format($subtotal) }}">{{ number_format($subtotal) }}</span></span></li>
                                         <li>Ongkir <span class="count">Rp. <span id="total_ongkir">0</span></span></li>
                                     </ul>
@@ -198,7 +199,7 @@
 
 
     <script>
-    $(document).ready(function() {     
+    $(document).ready(function() {
         document.getElementById("kota").disabled = true;
         document.getElementById("kurir").disabled = true;
         document.getElementById("service").disabled = true;
@@ -209,7 +210,7 @@
 
     $('#prov').change(function() {
         var id = $(this).val();
-        
+
         $.ajax({
             url: "/get-city?province_id=" + id,
             method: "GET",
@@ -238,7 +239,8 @@
 
     $('#kurir').change(function() {
         var kurir = $(this).val();
-        var kota  = $('[name="kota"]').val();
+        var kota  = $('[name="city"]').val();
+        console.log(kurir)
 
         $.ajax({
             url: "/get-cost?destination=" + kota + "&&courier=" + kurir,
@@ -246,7 +248,7 @@
             async: true,
             dataType: 'json',
             success: function(data) {
-
+                console.log(data)
                 document.getElementById("service").disabled = false;
 
                 var html = '';
@@ -267,10 +269,9 @@
         var subtotal    = $('#subtotal_checkout').text();
 
         var totalCheckout = parseInt(cost) + parseInt(subtotal.replace(/,/g, ''));
-        
+
         $("#total_ongkir").number(cost);
         $("#total_checkout").number(totalCheckout);
-        $("#ongkir").val(cost);
     });
 
 

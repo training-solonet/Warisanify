@@ -4,17 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\SuccessCheckout;
 
 class Checkout extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'sell_code',
-        'origin',
-        'destination',
+        'username',
+        'telp',
+        'province',
+        'city',
         'courier',
-        'weight',
-        'alamat'
-    ];  
+        'cost',
+        'origin'
+    ];
+
+    public function successCheckout() {
+        return $this->hasOne(SuccessCheckout::class, 'id', 'checkout_id');
+    }
 }

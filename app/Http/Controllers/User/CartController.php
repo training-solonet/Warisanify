@@ -89,7 +89,7 @@ class CartController extends Controller
         $cek = Cart::find($id)->update([
             'qty' => $productCart->qty + $request->get('qty')
         ]);
-        // return $cek;
+        // return $cek;g
         return Response()->json(['status' => true]);
     }
 

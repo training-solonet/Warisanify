@@ -30,6 +30,14 @@
                 <input type="number" name="sale_price" id="sale_price" class="form-control" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
+                <label for="" class="form-label">Width</label>
+                <input type="number" name="width" id="width" class="form-control" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Height</label>
+                <input type="number" name="height" id="height" class="form-control" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
                 <label for="" class="form-label">Category</label>
                 <select class="form-select" aria-label="Default select example" name="category_id" id="category_id">
                     <option value="" disabled>Select category</option>
@@ -47,10 +55,10 @@
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Stock Status</label>
-                <select class="form-select" aria-label="Default select example" name="stock_status" id="stock_status">
+                <select class="form-select" aria-label="Default select example" name="stock_status" id="category_id">
                     <option value="" disabled>Select Stock Status</option>
                     <option id="stock_status" value="instock">In Stock</option>
-                    <option id="stock_status" value="outofstock">Out Of Stock</option> 
+                    <option id="stock_status" value="outofstock">Out Of Stock</option>
                 </select>
             </div>
             <div class="mb-3">

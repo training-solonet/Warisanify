@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateCheckoutsTable extends Migration
 {
@@ -15,12 +16,14 @@ class CreateCheckoutsTable extends Migration
     {
         Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
-            $table->string('sell_code');
-            $table->integer('origin');
-            $table->integer('destination');
+            $table->string('username');
+            $table->string('telp');
+            $table->string('province');
+            $table->string('city');
             $table->string('courier');
-            $table->integer('weight');
-            $table->text('alamat');
+            $table->integer('cost');
+            $table->string('origin');
+            $table->enum('status', ['pending', 'success'])->default('pending');
             $table->timestamps();
         });
     }

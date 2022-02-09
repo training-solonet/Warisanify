@@ -22,6 +22,8 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->integer('regular_price');
             $table->decimal('sale_price')->nullable();
+            $table->string('width');
+            $table->string('height');
             $table->enum('stock_status', ['instock', 'outofstock']);
             $table->boolean('featured')->default(false);
             $table->unsignedInteger('quantity')->default(10);

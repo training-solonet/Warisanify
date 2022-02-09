@@ -27,7 +27,6 @@ class CheckoutController extends Controller
             'user' => $user,
             'province' => $province
         ]);
-        
     }
 
     /**
@@ -96,7 +95,8 @@ class CheckoutController extends Controller
         //
     }
 
-    public function get_province(){
+    public function get_province()
+    {
 
         $key = config('services.rajaongkir.key', '');
 
@@ -109,7 +109,8 @@ class CheckoutController extends Controller
         return $data['rajaongkir']['results'];
     }
 
-    public function get_city(Request $request){
+    public function get_city(Request $request)
+    {
 
         $key = config('services.rajaongkir.key', '');
 
@@ -121,10 +122,10 @@ class CheckoutController extends Controller
         $data = json_decode($response, true);
 
         return $data['rajaongkir']['results'];
-
     }
 
-    public function get_cost(Request $request){
+    public function get_cost(Request $request)
+    {
 
         $key = config('services.rajaongkir.key', '');
 
@@ -139,7 +140,5 @@ class CheckoutController extends Controller
         $data = json_decode($response, true);
 
         return $data['rajaongkir']['results'][0]['costs'];
-
     }
 }
-

@@ -46,7 +46,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  
+
 </div>
 <!-- ./wrapper -->
 
@@ -73,8 +73,73 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ url('AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
 @yield('script')
-<script type="javascript">
-    
+<script type="text/javascript">
+    $(document).ready(function(){
+    $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    });
+
+    $("#productTable").DataTable({
+        ordering: false,
+        processing : true,
+        serverSide : true,
+        ajax : {
+            url : "{{ route('admin.product.index') }}",
+            type : "GET"
+        },
+        columns: [
+            {
+                data : 'DT_RowIndex',
+                orderable : false,
+                searchable : false
+            },
+            {data: "image"},
+            {data: "name"},
+            {data: "regular_price"},
+            {data: "sale_price"},
+            {data: "width"},
+            {data: "height"},
+            {data: "category.name"},
+            {data: "description"},
+            {data: "stock_status"},
+            {data: "quantity"},
+            {data: "action"}
+        ],
+        columnDefs:
+        [{
+            "targets" : 1,
+            "render" : function (data, type, row, meta){
+                return "<img src=\"/Assets/images/" + data + "\" height=\"60\"/>";
+            }
+        }]
+    });
+
+
+    function deleteShowModal(id) {
+    $('#confirmation-delete-modal').modal('show');
+
+    $('#delete-button').click(function(){
+        $.ajax({
+            url: "/admin/product/" + id, //eksekusi ajax ke url ini
+            type: 'DELETE',
+            success: function (data) { //jika sukses
+                console.log("cek")
+                setTimeout(function() {
+                    $('#confirmation-delete-modal').modal('hide'); //sembunyikan konfirmasi modal
+                    var oTable = $('#productTable').dataTable();
+                    var DeleteTable = $('#CategoryTable').dataTable();
+                    oTable.fnDraw(false); //reset datatabl  e
+                    DeleteTable.fnDraw(false); //reset datatable
+                });
+            }, error: function (){
+                console.log("error")
+            }
+        });
+    });
+}
 </script>
 </body>
 </html>

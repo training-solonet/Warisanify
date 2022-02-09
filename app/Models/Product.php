@@ -17,6 +17,8 @@ class Product extends Model
         'description',
         'regular_price',
         'sale_price',
+        'width',
+        'height',
         'stock_status',
         'featured',
         'quantity',
@@ -27,7 +29,8 @@ class Product extends Model
 
     protected $table = 'products';
 
-    public function category(){
+    public function category()
+    {
         return $this->hasOne(Category::class, 'id', 'category_id');
     }
 }

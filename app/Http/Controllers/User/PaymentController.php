@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\User;
 
-use Midtrans\Sanp;
 use Midtrans\Snap;
 use App\Models\Cart;
 use Midtrans\Config;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Checkout;
 use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
@@ -40,10 +40,12 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        $ongkir = $request->ongkir;
+
+        $ongkir = $request->service;
         $product = Cart::with('product')->where('user_id', Auth::user()->id)->get();
+        Checkout::create($request->all());
         $subtotal = 0;
-        foreach($product as $p){
+        foreach ($product as $p) {
             $subtotal += $p->qty * $p->product->regular_price;
         }
 
@@ -65,25 +67,25 @@ class PaymentController extends Controller
             'cutomer_details' => [
                 'first_name' => Auth::user()->name
             ],
-            'enabled_payments' => ["credit_card", "cimb_clicks",
+            'enabled_payments' => [
+                "credit_card", "cimb_clicks",
                 "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
                 "bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret",
                 "danamon_online", "akulaku", "shopeepay"
             ],
             'vtweb' => []
-            ];
+        ];
 
-            try {
-                // Get Snap Payment Page URL
-                $paymentUrl = Snap::createTransaction($midtrans_params)->redirect_url;
-                
-                // Redirect to Snap Payment Page
-                header('Location: ' . $paymentUrl);
-                }
-                catch (Exception $e) { 
-                echo $e->getMessage();
-                }
-            }
+        try {
+            // Get Snap Payment Page URL
+            $paymentUrl = Snap::createTransaction($midtrans_params)->redirect_url;
+
+            return redirect($paymentUrl);
+            // header('location: ' . $paymentUrl);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 
     /**
      * Display the specified resource.
