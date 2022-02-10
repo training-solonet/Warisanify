@@ -65,7 +65,7 @@ section.helper {
 
         .shopping-cart{
             pointer-events: none;
-
+            width: 500px;
             opacity: 0;
             background-color: #fff;
             position: absolute;
@@ -76,11 +76,17 @@ section.helper {
             gap: .5em;
             list-style-type: none;
             
+            // #shopping-cart{
+            //     .cart-item{
+            //         padding-bottom: .5em;
+            //     }
+            // }
 
             .cart-item{
                 display: flex;
                 gap: 2em;
                 padding-bottom: .5em;
+                margin-bottom: .5em;
                 border-bottom: 1px solid #000;
                 
                 img{
@@ -95,6 +101,7 @@ section.helper {
                     justify-content: center;
                     width: max-content;
                     line-height: 1;
+                    width: 100%;
                     
                     .cart-product-name{
                         font-size: 1.5em;
@@ -114,6 +121,8 @@ section.helper {
                     
                 }
                 .close-button i{
+                    // display: flex;
+                    justify-self: flex-end;
                     cursor: pointer;
                 }
                 .close-button i:hover{
