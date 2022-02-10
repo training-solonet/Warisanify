@@ -5,9 +5,10 @@ namespace App\Http\Controllers\User;
 use Midtrans\Snap;
 use App\Models\Cart;
 use Midtrans\Config;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Checkout;
+use Illuminate\Http\Request;
+use App\Models\SuccessCheckout;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
@@ -43,14 +44,39 @@ class PaymentController extends Controller
 
         $ongkir = $request->service;
         $product = Cart::with('product')->where('user_id', Auth::user()->id)->get();
-        Checkout::create($request->all());
         $subtotal = 0;
         foreach ($product as $p) {
             $subtotal += $p->qty * $p->product->regular_price;
         }
 
         $subtotal += $ongkir;
-        // return $subtotal;
+
+        $cart = Cart::with('Product')->where('user_id', Auth::id())->get();
+        $sellcode = date('Y-m-d') . '-' . rand();
+        // return $sellcode;
+        foreach ($cart as $value) {
+            $array = [
+                'sell_code' => $sellcode,
+                'product_id' => $value->product_id,
+                'qty' => $value->qty,
+                'price_per_item' => $value->product->regular_price
+            ];
+
+            $data[] = $array;
+        }
+
+        SuccessCheckout::insert($data);
+
+        Checkout::create([
+            'username' => Auth::user()->name,
+            'telp' => $request->telp,
+            'province' => $request->province,
+            'city' => $request->city,
+            'courier' => $request->courier,
+            'cost' => $request->cost,
+            'origin' => $request->origin,
+            'sell_code' => "$sellcode"
+        ]);
 
         // Set your Merchant Server Key
         Config::$serverKey = config('midtrans.serverKey');

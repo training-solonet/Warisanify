@@ -22,14 +22,11 @@ class CekController extends Controller
 
     //     return $data;
     // }
-    public function index(){
+    public function index()
+    {
 
         // return $request->ongkir;
-        $product = Cart::with('product')->where('user_id', Auth::id())->get();
-        $subtotal = 0;
-        foreach($product as $p){
-            $subtotal += $p->qty * $p->product->regular_price;
-        }
-        return $product;
+        $sellcode = date('Y-m-d') . '-' . rand();
+        return $sellcode;
     }
 }

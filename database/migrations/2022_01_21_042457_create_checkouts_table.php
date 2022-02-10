@@ -23,6 +23,7 @@ class CreateCheckoutsTable extends Migration
             $table->string('courier');
             $table->integer('cost');
             $table->string('origin');
+            $table->string('sell_code');
             $table->enum('status', ['pending', 'success'])->default('pending');
             $table->timestamps();
         });

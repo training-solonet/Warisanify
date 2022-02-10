@@ -15,7 +15,7 @@ class CreateSuccessCheckoutsTable extends Migration
     {
         Schema::create('success_checkouts', function (Blueprint $table) {
             $table->id();
-            $table->string('checkout_id');
+            $table->string('sell_code');
             $table->string('product_id');
             $table->string('qty');
             $table->string('price_per_item');

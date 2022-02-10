@@ -10,6 +10,8 @@ class Checkout extends Model
 {
     use HasFactory;
 
+    // protected $table = "checkouts";
+
     protected $fillable = [
         'username',
         'telp',
@@ -17,10 +19,12 @@ class Checkout extends Model
         'city',
         'courier',
         'cost',
-        'origin'
+        'origin',
+        'sell_code'
     ];
 
-    public function successCheckout() {
+    public function successCheckout()
+    {
         return $this->hasOne(SuccessCheckout::class, 'id', 'checkout_id');
     }
 }

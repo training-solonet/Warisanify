@@ -272,6 +272,7 @@
 
         $("#total_ongkir").number(cost);
         $("#total_checkout").number(totalCheckout);
+        console.log(subtotal);
     });
 
 

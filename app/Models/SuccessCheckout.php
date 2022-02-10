@@ -10,7 +10,7 @@ class SuccessCheckout extends Model
     use HasFactory;
 
     protected $fillable = [
-        'checkout_id',
+        'sell_code',
         'product_id',
         'qty',
         'price_per_item'

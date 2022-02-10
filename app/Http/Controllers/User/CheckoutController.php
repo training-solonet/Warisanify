@@ -22,6 +22,7 @@ class CheckoutController extends Controller
         $user = Auth::user();
         $province = $this->get_province();
 
+
         return view('user.checkout', [
             'data' => $data,
             'user' => $user,

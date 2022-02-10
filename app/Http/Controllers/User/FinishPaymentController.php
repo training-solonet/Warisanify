@@ -10,8 +10,10 @@ use App\Models\Checkout;
 use Illuminate\Http\Request;
 use App\Models\SuccessCheckout;
 use App\Http\Controllers\Controller;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use PhpParser\Node\Stmt\Return_;
 
 class FinishPaymentController extends Controller
 {
@@ -20,33 +22,51 @@ class FinishPaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $cart = Cart::with('product.category:id,name')->where('user_id', Auth::id())->get();
-        // $cartQty = Cart::select('id', 'qty')->get();
-        // return $cart[0]->product->regular_price;
-        $checkout = Checkout::select('id')->where('id', Auth::id())->get();
+
+        // return $data;
+        // return $cartId;
+
+        // while ($cartt = $cart) {
+        //     $cartNew[] = $cartt;
+        //     // return $cartNew;
+        // }
+
+        // return $cart;
+        // for ($i = 0; $i > 2; $i++) {
+        //     $cartNew[] = $cart[$i];
+        //     return $cartNew;
+        // }
+
+
+        // return $cartNew;
+
         // return $cart[0]->product->id;
 
-        // foreach ($cart as $data) {
-        //     return $data->product->id;
-        // }
-        SuccessCheckout::create([
-            'checkout_id' => $checkout[0]->id,
-            'product_id' => $cart[0]->product->id,
-            'qty' => $cart[0]->qty,
-            'price_per_item' => $cart[0]->product->regular_price
-        ]);
+        // // foreach ($cart as $data) {
+        // //     return $data->product->id;
+        // // }
 
-        $cek = SuccessCheckout::get();
+        // SuccessCheckout::create([
+        //     'checkout_id' => $checkout->id,
+        //     'product_id' => $cart->product_id,
+        //     'qty' => $cart->qty,
+        //     'price_per_item' => $cart->product->regular_price
+        // ]);
 
-        return $cek;
+        // SuccessCheckout::all();
+
+        // return $cek;
 
         // return $cart->product->id;
+        // Checkout::where('sell_code', )->update([
+        //     'status' => 'success',
+        // ]);
         // Mail::to('edy.kurniawan@fikom.udb.ac.id')->send(new SendEmail);
         Cart::where('user_id', Auth::id())->delete();
 
-        return 'Berhasil kirim email';
+        return redirect()->route('home.index');
     }
 
     /**

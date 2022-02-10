@@ -21,61 +21,61 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        if(request()->ajax()){
-        $products = Cart::with('product.category:id,name')->where('user_id', Auth::user()->id)->get();
-        return Datatables::of($products)
-        ->addIndexColumn()
-        ->addColumn('image', function ($row) {
+    {
+        if (request()->ajax()) {
+            $products = Cart::with('product.category:id,name')->where('user_id', Auth::user()->id)->get();
+            return Datatables::of($products)
+                ->addIndexColumn()
+                ->addColumn('image', function ($row) {
 
-            $actionBtn = '
+                    $actionBtn = '
                     <center>
                     <img src="/Assets/images/warisan_1.png" style="width:50px;">
                     </center>';
 
-            return $actionBtn;
-        })
-        ->addColumn('total', function ($row) {
+                    return $actionBtn;
+                })
+                ->addColumn('total', function ($row) {
 
-            $actionBtn = number_format($row->qty * $row->product->regular_price);
+                    $actionBtn = number_format($row->qty * $row->product->regular_price);
 
-            return $actionBtn;
-        })
-        ->addColumn('price', function ($row) {
+                    return $actionBtn;
+                })
+                ->addColumn('price', function ($row) {
 
-            $actionBtn = number_format($row->product->regular_price);
+                    $actionBtn = number_format($row->product->regular_price);
 
-            return $actionBtn;
-        })
-        ->addColumn('qty', function ($row) {
+                    return $actionBtn;
+                })
+                ->addColumn('qty', function ($row) {
 
-            $actionBtn = '<div class="qty-box">
+                    $actionBtn = '<div class="qty-box">
                                     <div class="input-group">
                                         <span class="input-group-prepend">
                                         <button type="button" class="btn quantity-left-minus" data-type="minus"
-                                                data-field=""><i class="ti-angle-left" onclick="decreaseQty('.$row->id.')"></i></button> </span>
-                                        <input id="cart_qty" type="number" step="1" min="1" max="" pattern="" inputmode="" name="cart_qty" onchange="edit_cart('.$row->id.')" class="form-control input-text"
-                                            value="'.$row->qty.'"> <span class="input-group-prepend">
+                                                data-field=""><i class="ti-angle-left" onclick="decreaseQty(' . $row->id . ')"></i></button> </span>
+                                        <input id="cart_qty" type="number" step="1" min="1" max="" pattern="" inputmode="" name="cart_qty" onchange="edit_cart(' . $row->id . ')" class="form-control input-text"
+                                            value="' . $row->qty . '"> <span class="input-group-prepend">
                                         <button type="button" class="btn quantity-right-plus" data-type="plus"
-                                                data-field=""><i class="ti-angle-right" onclick="increaseQty('.$row->id.')"></i></button></span>
+                                                data-field=""><i class="ti-angle-right" onclick="increaseQty(' . $row->id . ')"></i></button></span>
                                         </span>
                                     </div>
                         </div>';
 
-            return $actionBtn;
-        })
-        ->addColumn('action', function ($row) {
-            $actionBtn = '
+                    return $actionBtn;
+                })
+                ->addColumn('action', function ($row) {
+                    $actionBtn = '
             <center>
-                    <button class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="deleteCartt('.$row->id.')"><i class="far fa-trash-alt"></i></button>
+                    <button class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="deleteCartt(' . $row->id . ')"><i class="far fa-trash-alt"></i></button>
             </center>';
 
-            return $actionBtn;
-        })
-        ->rawColumns(['action', 'image', 'qty'])
-        ->make(true);
-    }
-        return view('user.cart');   
+                    return $actionBtn;
+                })
+                ->rawColumns(['action', 'image', 'qty'])
+                ->make(true);
+        }
+        return view('user.cart');
     }
 
     /**
@@ -102,15 +102,16 @@ class CartController extends Controller
     public function store(Request $request)
     {
 
-        //ga berfaeda ini wkamdkawmmkdwakmdkwam    
+        //ga berfaeda ini wkamdkawmmkdwakmdkwam
         ///$product = Product::get();
         $checkReady = Cart::where('user_id', Auth::user()->id)->where('product_id', $request->product_id)->first();
 
+        // return $checkReady;
         if ($checkReady) {
             Cart::where('user_id', Auth::user()->id)->where('product_id', $request->product_id)->update([
                 'qty' => $request->qty + $checkReady->qty
             ]);
-        } else{
+        } else {
             Cart::create([
                 'user_id' => Auth::user()->id,
                 'product_id' =>  $request->product_id,
@@ -130,7 +131,6 @@ class CartController extends Controller
     public function show($id)
     {
         $data = Cart::with('product')->where('user_id', Auth::user()->id)->get();
-        // return $data;   
         return Response()->json($data);
     }
 
@@ -158,7 +158,6 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-    
     }
 
     /**
@@ -170,7 +169,6 @@ class CartController extends Controller
     public function destroy($id)
     {
         Cart::find($id)->delete();
-        // Cart::find($request->get(id))->delete();
         return Response()->json(['status' => true]);
     }
 }
