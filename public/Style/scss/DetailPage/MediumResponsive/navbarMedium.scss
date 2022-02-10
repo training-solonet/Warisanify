@@ -1,0 +1,206 @@
+@use '../../mediaMediumResponsive';
+
+@include mediaMediumResponsive.md {
+    nav.navbar {
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+        background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), url('../pict/navbar.png');
+
+        .nav-list {
+            display: flex;
+            flex-direction: row;
+            font-size: 1em;
+            width:100%;
+            height: fit-content;
+            width: 50%;
+            gap: unset;
+            justify-content: space-around;
+            align-items: center;
+            position: unset;
+            background-color: unset;
+
+            li{
+                color: #fff;
+                text-decoration: none;
+                height: fit-content;
+            }
+
+            .dropdown{    
+                .dropdown-menu{
+                    right: 0;
+                    padding: 3rem;
+                    left: unset;
+                    top: calc(100% + .25rem);
+                    transform: translateY(-10px);
+                    box-shadow: 0 2px 5px 0 rgba(0,0,0, .1);
+                    
+                    hr, .information-grid, .theater-grid{
+                        display: unset;
+                    }
+                    
+                    // text-align: left;
+                    // position: absolute;
+                    // right: 0;
+                    // top: calc(100% + .25rem);
+                    // background-color: #fff;
+                    // padding: 3rem;
+                    // box-shadow: 0 2px 5px 0 rgba(0,0,0, .1);
+                    // opacity: 0;
+                    // pointer-events: none;
+                    // transform: translateY(-10px);
+                    // transition: 150ms ease-in-out all;
+                    // display: flex;
+                    // flex-direction: column;
+                    // gap: 2rem;
+
+                    .profile-grid{
+                        .dropdown-link{
+                            gap: 3rem;
+                            .profile-content{
+                                font-size: 1.2em;
+                            }
+                        }
+                    }
+
+                    .information-grid{
+                        display: grid;
+                        grid-template-columns: repeat(2, 300px);
+                        gap: 2rem;
+                        
+                        .cart-grid{
+                            display: flex;
+                            flex-direction: column;
+                            gap: .5rem;
+
+                            .cart-product-grid{
+                                display: flex;
+                                gap: 1rem;
+                            }
+
+                            .cart-product-grid:not(last-child){
+                                margin-bottom: 1rem;
+                            }
+
+                            .cart-action{
+                                height: 100%;
+                                display: flex;
+                                align-items: end;
+                                gap: 1rem;
+                                bottom: 0;
+                                a{
+                                    font-size: .55em;
+                                    color: #000;
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+
+                        .theater-grid{
+                            display: flex;
+                            flex-direction: column;
+                            gap: .5rem;
+                            
+                            .theater-ticket-grid{
+                                display: flex;
+                                gap: 1rem;
+                            }
+                            .theater-ticket-grid:not(last-child){
+                                margin-bottom: 1rem;
+                            }
+
+                            .theater-action{
+                                height: 100%;
+                                display: flex;
+                                align-items: end;
+                                gap: 1rem;
+                                bottom: 0;
+                                a{
+                                    font-size: .55em;
+                                    color: #000;
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                    }
+
+                    // .dropdown-heading{
+                    //     font-size: 1.2em;
+                    //     color: #000;
+                    //     font-weight: 500;
+                    //     margin-bottom: 1rem;
+                    // }
+                    
+                    // .dropdown-link > a,p,h6 {
+                    //     font-family: sans-serif;
+                    //     text-decoration: none;
+                    //     color: #000;
+                    //     font-size: .5em;
+                    // }
+
+                    .profile-button{
+                        font-size: .8em;
+                    }
+
+                    // .profile-button:hover{
+                    //     background-color: #000;
+                    //     color: #fff;
+                    // }
+                    
+                }
+
+                
+
+                // .dropdown-menu.active{
+                //     li{
+                //         opacity: 1;
+                //     }
+                // }
+            }
+            // .dropdown.active > .link + .dropdown-menu{
+            //     opacity: 1;
+            //     transform: translateY(0);
+            //     pointer-events: auto;
+            // }
+
+            
+        }
+            
+        .hamburger {
+            display: none;
+        }
+
+        .login-btn {
+            padding: .6rem;
+            background-color: #fff;
+            border: none;
+            // font-family: variabel.$GTAlpinaFineTrialRg;
+            font-weight: 500;
+            font-size: 1.5em;
+            color: #000;
+            cursor: pointer;
+            transition: .5s ease all;
+        }
+
+        .login-btn:hover {
+            background-color: #714E2F;
+            color: #fff;
+        }
+    }
+
+    .hero-text {
+        // background-color: red;
+        // font-size: 2em;
+        height: 70%;
+        text-align: right;
+        width: 50%;
+        justify-content: flex-end;
+        margin-left: auto;
+
+        h3 {
+            font-size: .8em;
+            font-weight: unset;
+        }
+    }
+}
+

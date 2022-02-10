@@ -1,0 +1,11 @@
+@use '../reset';
+
+@use 'SmallResponsive/navbar';
+@use 'SmallResponsive/main';
+@use 'SmallResponsive/footer';
+
+
+@use 'MediumResponsive/navbarMedium';
+@use 'MediumResponsive/mainMedium';
+
+@use 'LargeResponsive/mainLarge'

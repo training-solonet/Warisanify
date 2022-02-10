@@ -61,6 +61,7 @@
             <div class="checkout-form">
                 <form action="{{ route('payment.store') }}" method="POST">
                     @csrf
+                    
                     <div class="row">
                         <div class="col-lg-6 col-sm-12 col-xs-12">
                             <div class="checkout-title">

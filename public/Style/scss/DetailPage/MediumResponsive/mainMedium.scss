@@ -1,0 +1,68 @@
+@use '../../mediaMediumResponsive';
+
+@include mediaMediumResponsive.md{
+    section.main{
+        .product-detail{
+            margin: unset;
+            width: unset;
+            width: 750px;
+            display: flex;
+            margin: auto;
+            justify-content: space-around;
+
+            .image-product{
+                width: unset;
+                margin: unset;
+                margin-bottom: unset;
+            }
+
+            .product-detail-content{                
+                width: unset;
+                display: unset;
+                align-items: unset;
+
+                .product-detail-name{
+                    font-size: 2.5em;
+                }
+
+                .product-detail-category{
+                    font-size: .8em;
+                    margin-top: 1em;
+                }
+
+                .product-detail-price{
+                    font-size: 2.5em;
+                }
+            }
+
+            hr{
+                grid-area: hr;
+                // display: none;
+            }
+
+            .quantity-container{
+                h2{
+                    text-align: unset;
+                    font-size: 1.5em;
+                }
+
+                .quantity-action{
+                    justify-content: unset;
+
+                    .qty-input{
+                        width: 120px;
+                        
+                        font-size: 1.2em;
+                    }
+                }
+            }
+
+            .add-to-cart-button{
+                padding: .8em;
+                font-size: 1em;
+                width: fit-content;
+            }
+        }
+    }
+    
+}

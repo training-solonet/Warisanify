@@ -1,0 +1,85 @@
+section.main-content {
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 268px);
+    justify-content: center;
+    column-gap: 3em;
+    row-gap: 6em;
+    margin: auto;
+    margin-bottom: 200px;
+
+    .card{
+        position: relative;
+        width: 268px;
+        height: 400px;
+        box-shadow: 3px 4px 25px -5px rgba(74,74,74,0.81);
+-webkit-box-shadow: 3px 4px 25px -5px rgba(74,74,74,0.81);
+-moz-box-shadow: 3px 4px 25px -5px rgba(74,74,74,0.81);
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    
+        .view-detail{
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transition: 150ms ease-in-out all;
+            .view-link{
+                width: 100%;
+                height: 100%;
+                border: none;
+                font-size: 2em;
+            }
+        }
+
+        .view-detail:hover{
+            opacity: 1;
+            .view-link{
+                cursor: pointer;
+                background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .9));
+            }
+        }
+    
+        .card-content {
+            position: absolute;
+            bottom: -50px;
+            transform: translateX(15%);
+            max-height: 150px;
+            width: 80%;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            background-color: #fff;
+            box-shadow: 0px 10px 17px 0px rgba(0, 0, 0, 0.3);
+            // margin-bottom: 84px;
+    
+            h2:first-child,
+            p {
+                font-family: "GT Alpina Fine Trial Rg";
+            }
+    
+            p {
+                font-weight: lighter;
+                font-size: .8em;
+            }
+    
+            h2:last-child {
+                display: flex;
+                justify-content: flex-end;
+                font-family: "Scheherazade New";
+                font-weight: lighter;
+                margin-top: 16px;
+            }
+        }
+    
+        .card-content>* {
+            font-weight: unset;
+        }
+    }
+}

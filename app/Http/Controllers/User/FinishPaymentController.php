@@ -18,9 +18,10 @@ class FinishPaymentController extends Controller
      */
     public function index()
     {
+        
         Mail::to('edy.kurniawan@fikom.udb.ac.id')->send(new SendEmail);
         Cart::where('user_id', Auth::id())->delete();
-
+        
         return 'Berhasil kirim email';
     }
 

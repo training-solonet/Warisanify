@@ -1,359 +1,265 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="multikart">
-    <meta name="keywords" content="multikart">
-    <meta name="author" content="multikart">
-    <link rel="icon" href="{{ url('multikart/assets/images/favicon/1.png') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ url('multikart/assets/images/favicon/1.png') }}" type="image/x-icon">
-    <title>Detail Product</title>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+        <link rel="stylesheet" href="{{ url('Style/css/detail.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <script src="{{ url('Style/js/detail.js') }}" defer></script>
+        
+        <title>Detail Product</title>
+    </head>
+    <body>
+        <nav class="navbar">
+            <a class="logo" href="home.php">Warisanify</a>
+            <ul class="nav-list">
+                <li><a class="link" href="/">Home</a></li>
+                <li><a class="link" href="/home">Shop</a></li>
+                <li><a class="link" href="/detail">Theater</a></li>
+                <li><a class="link" href="#">About</a></li>
+                <li class="dropdown" data-dropdown>
+                    <img width="50" data-dropdown-link class="link" id="link" src="{{ url('Style/pict/profile.png') }}" alt="">
+                    <div class="dropdown-menu" id="dropdown-menu">
+                        <div class="profile-grid">
+                            <div class="dropdown-heading">Profile</div>
+                            <div class="dropdown-link">
+                                <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}" alt="" width="150">
+                                <div class="profile-content">
+                                    <p>Username : <a href="">{{ Auth::user()->name }}</a></p>
+                                    <p>Email : {{ Auth::user()->email }}</p>
+                                </div>
+                            </div>
+                        </div>
 
-    <!--Google font-->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&amp;display=swap" rel="stylesheet">
+                        <hr>
+                        
+                        <div class="information-grid">
+                            <div class="cart-grid">
+                                <a href="#" class="dropdown-heading">Cart</a>
+                                <div class="dropdown-link" id="dropdown-link">
+                            
+                                </div>
+                                <div class="cart-action">
+                                    <a href="#">Previous</a>
+                                    <a href="#">Next</a>
+                                </div>
+                            </div>
+                            
+                            <div class="theater-grid">
+                                <a href="#" class="dropdown-heading">Theater Waiting</a>
+                                <div class="dropdown-link">
+                                    <div class="theater-ticket-grid">
+                                        <img src="{{ url('Style/pict/wayang.png') }}" width="50" alt="">
+                                        <div class="ticket-content">
+                                            <p>Title : Anoman Kobong</p>
+                                            <p>Time : 18.00 - 22.00 WIB</p>
+                                            <p><span style="color: green">LIVE</span></p>    
+                                        </div>
+                                    </div>
+                                    <div class="theater-ticket-grid">
+                                        <img src="{{ url('Style/pict/wayang.png') }}" width="50" alt="">
+                                        <div class="ticket-content">
+                                            <p>Title : Anoman Kobong</p>
+                                            <p>Time : 18.00 - 22.00 WIB</p>
+                                            <p><span style="color: green">LIVE</span></p>    
+                                        </div>
+                                    </div>
+                                    <div class="theater-ticket-grid">
+                                        <img src="{{ url('Style/pict/wayang.png') }}" width="50" alt="">
+                                        <div class="ticket-content">
+                                            <p>Title : Anoman Kobong</p>
+                                            <p>Time : 18.00 - 22.00 WIB</p>
+                                            <p><span style="color: green">LIVE</span></p>    
+                                        </div>
+                                    </div>                             
+                                </div>
+                                <div class="theater-action">
+                                    <a href="#">Previous</a>
+                                    <a href="#">Next</a>
+                                </div>
+                            </div>
+                        </div>
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css" integrity="sha512-gRH0EcIcYBFkQTnbpO8k0WlsD20x5VzjhOA1Og8+ZUAhcMUCvd+APD35FJw3GzHAP3e+mP28YcDJxVr745loHw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <!--Slick slider css-->
-    <link rel="stylesheet" type="text/css" href="{{ url('multikart/assets/css/vendors/slick.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url('multikart/assets/css/vendors/slick-theme.css') }}">
+                        <div class="button-grid">
+                            <a href=""><button class="profile-button editProfileButton">Edit Profile</button></a>
+                            <a href=""><button class="profile-button logoutButton">Logout</button></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            
 
-    <!-- Animate icon -->
-    <link rel="stylesheet" type="text/css" href="{{ url('multikart/assets/css/vendors/animate.css') }}">
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
 
-    <!-- Themify icon -->
-    <link rel="stylesheet" type="text/css" href="{{ url('multikart/assets/css/vendors/themify-icons.css') }}">
+        <section class="main">
+            
+            <div class="product-detail">
+                <div class="image-product">
+                    <img src="{{ url('Assets/images') }}/{{ $product->image }}" width="100%" alt="">
+                </div>
+                
+                <div class="right">
+                    <div class="product-detail-content">
+                        <h1 class="product-detail-name">
+                            {{ $product->name }}
+                        </h1>
+                        <div class="product-detail-category">
+                            <p>Category<pre> </pre></p><a href="">Wayang Kulit</a>
+                        </div>
+                            
+                        <h1 class="product-detail-price">Rp. {{ number_format($product->regular_price) }}</h1>
+        
+                    </div>
+        
+                    <hr>
 
-    <!-- Bootstrap css -->
-    <link rel="stylesheet" type="text/css" href="{{ url('multikart/assets/css/vendors/bootstrap.css') }}">
+                    <form method="POST" id="form">
+                        @csrf
+                        @method('POST')
+                        <input type="hidden" id="product_id" name="product_id" value="{{ $product->id }}">
+                        <div class="quantity-container">
+                            <h2>Quantity</h2>
+                            <div class="quantity-action">
+                                <button class="minus-button">
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
+                                <input type="number" name="qty" min="1" value="1" class="qty-input">
+                                <button class="plus-button">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        @if(Auth::user())
+                        <button type="button" class="add-to-cart-button" onclick="addToCart()">
+                            Add To Cart
+                        </button>
+                        @else
+                        <a href="{{ route('login') }}">
+                            <button type="button">Add to cart</button>
+                        </a>
+                        @endif
+                    </form>
+                </div>
 
-    <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="{{ url('multikart/assets/css/style.css') }}">
+            </div>
 
-    <link rel="stylesheet" href="{{ url('vendor/sweetalert2/sweetalert2.min.css') }}">
-</head>
-<body>
-<h1>Detail Product</h1>
-<ul>
+            <div class="detail-content">
+                <ul class="detail-content-heading">
+                    <li onclick="changeDescription()"><h3 id="desc-head">Description</h3></li>
+                    <li onclick="changeDetailProduct()"><h3 id="detail-head">Detail Product</h3></li>
+                </ul>
 
-<!-- header start -->
-<header>
-    <div class="mobile-fix-option"></div>
-    <div class="top-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="header-contact">
+                <hr>
+
+                <div class="content" id="content">
+
+                </div>
+                <div class="description-content">
+                    <p class="description-content-text">
+                        {{ $product->short_desc }}
+                    </p>
+                </div>
+                <div class="product-detail-information">
+                    <div class="product-detail-information-text">
+                        <ul class="product-detail-information-head">
+                            <li>Dimension</li>
+                            <li>Material</li>
+                            <li>Weight</li>                    
+                        </ul>
                         <ul>
-                            <li>Selamat Datang Di Toko Kami</li>
-                            <li><i class="fa fa-phone" aria-hidden="true"></i>Hubungi Kami: 0271-0213-232</li>
+                            <li>:</li>
+                            <li>:</li>
+                            <li>:</li>
+                        </ul>
+                        <ul>
+                            <li>150cm x 20cm</li>
+                            <li>Leather</li>
+                            <li>200g</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-6 text-end">
-                    @if (Auth::user())
-                    <ul class="header-dropdown">
-                        <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
-                            {{ Auth::user()->name }}
-                            <ul class="onhover-show-div">
-                                <li><a href="/user/profile">Profile</a></li>
-                                <li><a href="{{ route('login') }}">Logout</a></li>
-                            </ul>
-                        </li>
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="">Warisanify</a>
+                </div>
+
+                <div class="find-us">
+                    <h1>Find Us</h1>
+                    <ul class="find-us-list">
+                        <li><a href="">warisanify.id</a></li>
+                        <li><a href="">warisanify.id</a></li>
+                        <li><a href="">warisanify.id</a></li>
+                        <li><a href="">warisanify.id</a></li>
                     </ul>
-                    @else   
-                    <ul class="header-dropdown">
-                        <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
-                            Akun
-                            <ul class="onhover-show-div">
-                                <li><a href="{{ route('login') }}">Login</a></li>
-                                <li><a href="{{ route('register') }}">Register</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    @endif
+                </div>
+
+                <div class="contact-us">
+                    <h1>Contact Us</h1>
+                    <a href="">warisanify@gmail.com</a>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="main-menu">
-                    <div class="menu-left">
-                        <div class="navbar">
-                            <a href="javascript:void(0)" onclick="openNav()">
-                                <div class="bar-style"><i class="fa fa-bars sidebar-bar" aria-hidden="true"></i>
-                                </div>
-                            </a>
-                            <div id="mySidenav" class="sidenav">
-                                <a href="javascript:void(0)" class="sidebar-overlay" onclick="closeNav()"></a>
-                                <nav>
-                                    <div onclick="closeNav()">
-                                        <div class="sidebar-back text-start"><i class="fa fa-angle-left pe-2"
-                                                aria-hidden="true"></i> Back</div>
-                                    </div>
-                                    <ul id="sub-menu" class="sm pixelstrap sm-vertical">
-                                        <li><a href="#">kitchen</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <div class="brand-logo">
-                            <a href="{{ route('home.index') }}"><img src="{{ url('multikart/assets/images/icon/logo.png') }}"
-                                    class="img-fluid blur-up lazyload" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="menu-right pull-right">
-                        <div>
-                            <nav id="main-nav">
-                                <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
-                                <ul id="main-menu" class="sm pixelstrap sm-horizontal">
-                                    <li>
-                                        <div class="mobile-back text-end">Back<i class="fa fa-angle-right ps-2"
-                                                aria-hidden="true"></i></div>
-                                    </li>
-                                    <li><a href="/">Home</a></li>
-                                    <li>
-                                        <a href="#">Promo Terbaru</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Tentang Kami</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div>
-                            <div class="icon-nav">
-                                <ul>
-                                    <li class="onhover-div mobile-search">
-                                        <div><img src="" onclick="openSearch()"
-                                                class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
-                                                onclick="openSearch()"></i></div>
-                                        <div id="search-overlay" class="search-overlay">
-                                            <div> <span class="closebtn" onclick="closeSearch()"
-                                                    title="Close Overlay">×</span>
-                                                <div class="overlay-content">
-                                                    <div class="container">
-                                                        <div class="row">
-                                                            <div class="col-xl-12">
-                                                                <form action="{{ route('home.index') }}" method="GET">
-                                                                    <div class="form-group">
-                                                                        <input type="text" name="search" class="form-control"
-                                                                            id="exampleInputPassword1"
-                                                                            placeholder="Search a Product">
-                                                                    </div>
-                                                                    <button type="submit" class="btn btn-primary"><i
-                                                                            class="fa fa-search"></i></button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="onhover-div mobile-cart">
-                                        <div><img src="{{ url('multikart/assets/images/icon/cart.png') }}"
-                                                class="img-fluid blur-up lazyload" alt=""> <i
-                                                class="ti-shopping-cart"></i></div>
-                                        <span id="cart_qty_product" class="cart_qty_cls">0</span>
-                                        <ul class="show-div shopping-cart">
-
-                                            <div id="class-keranjang">
-                                                    
-                                            </div>
-
-                                            <li>
-                                                <div class="total">
-                                                    <h5>subtotal : Rp. <span id="cart_total">0</span></h5>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="buttons"><a href="{{ route('cart.index') }}" class="view-cart">Lihat Keranjang</a> <a href="{{ route('checkout.index') }}" class="checkout">Checkout</a></div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- header end -->
-<ul style="display: flex; flex-direction: column;">
-    <li>
-        <img width="50" src="{{ url('Assets/images/')}}/{{$product->image}}" alt="">
-    </li>
-    <li>
-        Name : {{ $product->name }}
-    </li>
-    {{-- <li>
-        Category : {{ $product->categories['name'] }}
-    </li> --}}
-    <li>
-        Stock : {{ $product->quantity }}
-    </li>
-    <li>
-        Price : <span id="price_product">{{ number_format($product->regular_price) }}</span>
-    </li>
-    <li>
-        Discount : <span id="discount_product"></span>
-    </li>
-    <li>
-        Short Desc : {{ $product->short_desc }}
-    </li>
-    <li>
-        <form id="form" method="POST">
-            @csrf
-            @method('POST')
-            <input type="hidden" id="product_id" name="product_id" value="{{ $product->id }}">
-            <input name="qty" type="number" value="1" min="1">
-            @if(Auth::user())
-            <button type="button" onclick="addToCart()">Add to cart</button>
-            @else
-            <a href="{{ route('login') }}">
-                <button type="button">Add to cart</button>
-            </a>
-            @endif
-        </form>
-    </li>
-</ul>
-
-<h1>Popular Product</h1>
-<ul>
-    @foreach ($popular_products as $popularProduct)
-    <li>
-        <img width="50" src="{{ url('Assets/images/')}}/{{$popularProduct->image}}" alt="">
-    </li>
-    <li>
-        Name : <a href="">{{ $popularProduct->name }}</a>
-    </li>
-    <li>
-        Stock : {{ $popularProduct->quantity }}
-    </li>
-    <li>
-        Price : {{ $popularProduct->regular_price }}
-    </li>
-    <li>
-        Short Desc : {{ $popularProduct->short_desc }}
-    </li>
-    <li>
-        <a href=""></a>
-    </li>
-    @endforeach
-</ul>
-
-<h1>Related Product</h1>
-<ul>
-    @foreach ($related_products as $relatedProduct)
-    <li>
-        <img width="50" src="{{ url('Assets/images/')}}/{{$relatedProduct->image}}" alt="">
-    </li>
-    <li>
-        Name : <a href="">{{ $relatedProduct->name }}</a>
-    </li>
-    <li>
-        Stock : {{ $relatedProduct->quantity }}
-    </li>
-    <li>
-        Price : {{ $relatedProduct->regular_price }}
-    </li>
-    <li>
-        Short Desc : {{ $relatedProduct->short_desc }}
-    </li>
-    <li>
-        <a href=""></a>
-    </li>
-    @endforeach
-</ul>
+        </footer>
 
 
-<div class="tap-top top-cls">
-        <div>
-            <i class="fa fa-angle-double-up"></i>
-        </div>
-    </div>
-    <!-- tap to top end -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        <script src="{{ url('vendor/sweetalert2/sweetalert2.min.js')}}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/df-number-format/2.1.6/jquery.number.min.js" integrity="sha512-3z5bMAV+N1OaSH+65z+E0YCCEzU8fycphTBaOWkvunH9EtfahAlcJqAVN2evyg0m7ipaACKoVk6S9H2mEewJWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript">
 
 
-    <!-- latest jquery-->
-    <script src="{{ url('multikart/assets/js/jquery-3.3.1.min.js') }}"></script>
-
-    <!-- fly cart ui jquery-->
-    <script src="{{ url('multikart/assets/js/jquery-ui.min.js') }}"></script>
-
-    <!-- exitintent jquery-->
-    <script src="{{ url('multikart/assets/js/jquery.exitintent.js') }}"></script>
-    <script src="{{ url('multikart/assets/js/exit.js') }}"></script>
-
-    <!-- slick js-->
-    <script src="{{ url('multikart/assets/js/slick.js') }}"></script>
-
-    <!-- menu js-->
-    <script src="{{ url('multikart/assets/js/menu.js') }}"></script>
-
-    <!-- lazyload js-->
-    <script src="{{ url('multikart/assets/js/lazysizes.min.js') }}"></script>
-
-    <!-- Bootstrap js-->
-    <script src="{{ url('multikart/assets/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Bootstrap Notification js-->
-    <script src="{{ url('multikart/assets/js/bootstrap-notify.min.js') }}"></script>
-
-    <!-- Fly cart js-->
-    <script src="{{ url('multikart/assets/js/fly-cart.js') }}"></script>
-
-    <!-- Theme js-->
-    <script src="{{ url('multikart/assets/js/script.js') }}"></script>
-
-    <script src="{{ url('vendor/sweetalert2/sweetalert2.min.js')}}"></script>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/df-number-format/2.1.6/jquery.number.min.js" integrity="sha512-3z5bMAV+N1OaSH+65z+E0YCCEzU8fycphTBaOWkvunH9EtfahAlcJqAVN2evyg0m7ipaACKoVk6S9H2mEewJWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script>
-        $(window).on('load', function () {
-            setTimeout(function () {
-                $('#exampleModal').modal('show');
-            }, 2500);
-        });
-
-        function openSearch() {
-            document.getElementById("search-overlay").style.display = "block";
-        }
-
-        function closeSearch() {
-            document.getElementById("search-overlay").style.display = "none";
-        }
+            const hamburger = document.querySelector(".hamburger");
+            const navList = document.querySelector(".nav-list");
+        
+        
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                navList.classList.toggle("active");
+        
+            })
+        
+            document.querySelectorAll(".nav-link").forEach(n=> n.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navList.classList.remove("active");
+            }))
 
     </script>
 
     <script>
-        let text  = "";
-        let total = 0;
-
         $(document).ready(function() { 
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-
+            
             show_cart();
+            
+            defaultContent = $('.description-content').html();
+            $('#desc-head').addClass('active');
+            $('#content').fadeOut(200, function() {
+                $(this).html(defaultContent).fadeIn(200);
+            });
         });
-
-        
 
         function show_cart(){
             $.ajax({
@@ -367,69 +273,36 @@
                     total = 0;
                     //show cart
                     const cart = data;
-                    $("#cart_qty_product").text(data.length);
                     cart.forEach(loopCart);
-                    document.getElementById("class-keranjang").innerHTML = text;
-                    $("#cart_total").number(total);
-
+                    document.getElementById("dropdown-link").innerHTML = text;
                 },
                 error: function (jqXHR, textStatus , errorThrown) {
                     console.log(errorThrown);
                 }
             });
         }
-        
+
         function loopCart(item, index) {
-            text += '<li><div class="media"><a href=""><img alt="" class="me-3" src="{{ url("Assets/images/warisan_1.png") }}"></a><div class="media-body"><a href="#"><h4>'+item.product.name+'</h4></a><h4><span>'+item.qty+' x Rp. '+item.product.regular_price+'</span></h4></div></div><div class="close-circle"><a href="#"><i onclick="remove_cart('+item.id+')" class="fa fa-times" aria-hidden="true"></i></a></div></li>';
-            total += item.product.regular_price * item.qty;
+            text += '<div class="cart-product-grid"><img src="{{ url("Assets/images") }}/'+ item.product.image+'" width="50" alt=""><div class="cart-content"><p>Name : ' + item.product.name + '</p><p>Qty : ' + item.qty + '</p><p>Price : Rp. ' + item.product.regular_price + '</p></div></div>';
         }
 
-
-        function remove_cart(id){
-            const swalWithBootstrapButtons = Swal.mixin({
-                customClass: {
-                confirmButton: 'btn btn-success',
-                cancelButton: 'btn btn-danger'
+        function addToCart(){
+            $.ajax({
+                url : "{{ route('cart.store') }}",
+                type: "POST",
+                data: $('#form').serialize(),
+                dataType: "JSON",
+                success: function(data){
+                    console.log("berhasil")
+                    sukses();
+                    show_cart();
                 },
-            })
-            swalWithBootstrapButtons.fire({
-                title: 'Confirm !',
-                text: "You'll delete data ?",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Delete !',
-                cancelButtonText: 'Cancel',
-                reverseButtons: true
-            }).then((result) => {
-                if (result.value) {
-                $.ajax({
-                    url : "/cart/" + id,
-                    type: "DELETE",
-                    dataType: "JSON",
-                    success: function(data){
-                        if(data.status){
-                            sukses();
-                            show_cart();
-                            table.ajax.reload(null,false);
-                            console.log(data);
-
-                        }else{
-                            console.log(data);
-                        }
-                    },
-                    error: function (jqXHR, textStatus , errorThrown){ 
-                        console.log(errorThrown);
-                    }
-                })
-                } else if (result.dismiss === Swal.DismissReason.cancel) {
-                swalWithBootstrapButtons.fire(
-                    'Cancel',
-                    'Data not deleted',
-                    'error'
-                )
+                error: function (jqXHR, textStatus , errorThrown){ 
+                    console.log(errorThrown);
                 }
-            })
+            });
         }
+
         
 
         function sukses() {
@@ -444,25 +317,6 @@
                 title: 'Berhasil !'
             })
         }
-
-        </script>
-
-<script>
-function addToCart(){
-    $.ajax({
-        url : "{{ route('cart.store') }}",
-        type: "POST",
-        data: $('#form').serialize(),
-        dataType: "JSON",
-        success: function(data){
-            sukses();
-            show_cart();
-        },
-        error: function (jqXHR, textStatus , errorThrown){ 
-            console.log(errorThrown);
-        }
-    });
-}
-</script>
+    </script>
 </body>
 </html>

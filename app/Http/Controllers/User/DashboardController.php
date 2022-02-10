@@ -56,13 +56,13 @@ class DashboardController extends Controller
     public function show($slug)
     {
         $product = Product::with('category')->where('slug', $slug)->first();
-        $related_products = Product::with('category')->where('name', 'like', '%' . $product->name . '%')->get();
-        $popular_products = Product::with('category')->inRandomOrder()->limit(3)->get();
+        // $related_products = Product::with('category')->where('name', 'like', '%' . $product->name . '%')->get();
+        // $popular_products = Product::with('category')->inRandomOrder()->limit(3)->get();
 
         return view('user.details', [
             'product' => $product,
-            'related_products' => $related_products,
-            'popular_products' => $popular_products
+            // 'related_products' => $related_products,
+            // 'popular_products' => $popular_products
         ]);
     }
 

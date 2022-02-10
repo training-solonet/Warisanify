@@ -1,0 +1,7 @@
+@use '../../mediaMediumResponsive';
+
+@include mediaMediumResponsive.md {
+    section.helper{
+        width: 50vw;
+    }
+}

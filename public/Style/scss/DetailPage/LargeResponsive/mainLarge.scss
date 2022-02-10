@@ -1,0 +1,66 @@
+@use '../../mediaLargeResponsive';
+
+@include mediaLargeResponsive.lg{
+    section.main{
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        width: 1300px;
+        flex-direction: row;
+        
+        .product-detail{
+            width: 200%;
+            gap: 5em;
+            justify-content: unset;
+
+            .image-product{
+                width: 400px;
+            }
+
+            .product-detail-content{                
+                .product-detail-name{
+                    font-size: 3em;
+                }
+
+                .product-detail-category{
+                    font-size: 1em;
+                    margin-top: 1em;
+                }
+
+                .product-detail-price{
+                    font-size: 3em;
+                }
+            }
+
+            hr{
+                width: 100%;
+            }
+
+            .quantity-container{
+                .qty-input{
+                    width: 150px;                
+                    font-size: 1.5em;
+                }
+            }
+            .add-to-cart-button{
+                padding: .5em;
+                font-size: 1.5em;
+                width: 100%;
+            }
+        }
+
+
+        .detail-content{
+            width: 100%;
+            display: unset;
+            margin: unset;
+            // background-color: red;
+
+            .detail-content-heading{
+                justify-content: unset;
+                gap: 2em;
+            }
+
+        }
+    }
+}

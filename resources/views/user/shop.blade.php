@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="{{ url('Style/css/shoppp.css') }}">
+    <link rel="stylesheet" href="{{ url('Style/css/shop.css') }}">
     <script src="{{ url('Style/js/shop.js') }}" defer></script>
     <title>Shop</title>
 </head>
@@ -142,18 +142,63 @@
         </form>
     </div>
 
-    <div class="right">
-            <div class="cart">
-                <img src="{{ url('Style/pict/shopping-cart.png') }}" alt="" srcset="">
+    <div class="cart" id="cart" data-dropdown>
+        <span class="qty-cart">0</span>
+        <img class="link" src="{{ url('Style/pict/shopping-cart.png') }}" data-dropdown-link alt="cart-icon" width="50">
+        <ul class="shopping-cart" id="shopping-cart">
+            <div class="cart-item">
+                <img src="../pict/wayang.png" width="" alt="cart-item">
+                <div class="cart-item-content">
+                    <h3 class="cart-product-name">Product Name</h3>
+                    <h3 class="cart-product-category">category</h3>
+                    <h3 class="cart-product-quantity">X <span>1</span></h3>
+                    <h2 class="cart-product-price">Rp. <span>500,000</span></h2>
+                </div>           
+                <div class="close-button"><i class="fa fa-times" aria-hidden="true"></i></div>         
             </div>
-        </div>
+
+            <div class="cart-item">
+                <img src="../pict/wayang.png" width="" alt="cart-item">
+                <div class="cart-item-content">
+                    <h3 class="cart-product-name">Product Name</h3>
+                    <h3 class="cart-product-category">category</h3>
+                    <h3 class="cart-product-quantity">X <span>1</span></h3>
+                    <h2 class="cart-product-price">Rp. <span>500,000</span></h2>
+                </div>           
+                <div class="close-button"><i class="fa fa-times" aria-hidden="true"></i></div>         
+            </div>
+            <div class="cart-item">
+                <img src="../pict/wayang.png" width="" alt="cart-item">
+                <div class="cart-item-content">
+                    <h3 class="cart-product-name">Product Name</h3>
+                    <h3 class="cart-product-category">category</h3>
+                    <h3 class="cart-product-quantity">X <span>1</span></h3>
+                    <h2 class="cart-product-price">Rp. <span>500,000</span></h2>
+                </div>           
+                <div class="close-button"><i class="fa fa-times" aria-hidden="true"></i></div>         
+            </div>
+
+            <div class="prev-next">
+                <a href="#">Previous</a>
+                <a href="#">Next</a>
+            </div>
+
+            <li class="subtotal">
+                <h5>Subtotal : Rp. <span id="cart_total">0</span></h5>
+            </li>
+            <li class="buttons-cart">        
+                <a href="" class="btn-show-cart">Show Cart</a>
+                <a href="" class="btn-checkout">Checkout</a>                
+            </li>
+        </ul>
+    </div>
 </section>
 
 <section class="main-content">
 
     @foreach($products as $product )
     <div class="card">
-        <img src="{{ url('Style/pict/wayang.png') }}" alt="">
+        <img src="{{ url('Assets/images')}}/{{ $product->image }}" alt="">
         <form class="view-detail" action="{{ route('home.show', $product->slug) }}" method="GET">
             @csrf
             <button class="view-link">View Detail</button>
