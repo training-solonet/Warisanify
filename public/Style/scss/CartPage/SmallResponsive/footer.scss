@@ -1,0 +1,68 @@
+footer.footer {
+    height: 450px;
+    background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), url('../pict/footer.png');
+    background-position: center;
+    background-size: cover;
+    object-fit: cover;
+    text-align: center;
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        justify-content: center;
+        gap: 2em;
+        margin: auto;
+        justify-content: center;
+        align-content: center;
+        justify-items: center;
+        height: 100%;
+        width: 80%;
+    }
+
+    .footer-logo {
+        align-self: center;
+        font-size: 3em;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-family: "OptimusPrinceps";
+        }
+    }
+
+    .find-us {
+        font-family: "GT Alpina Fine Trial Rg";
+
+        h1 {
+            color: #fff;
+            font-weight: unset;
+            margin-bottom: 24px;
+        }
+
+        .find-us-list {
+            display: flex;
+            flex-direction: column;
+            row-gap: 16px;
+            list-style-type: none;
+
+            li a {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .contact-us {
+
+        h1 {
+            font-weight: unset;
+            color: #fff;
+            margin-bottom: 24px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}

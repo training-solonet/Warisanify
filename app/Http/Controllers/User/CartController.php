@@ -30,7 +30,7 @@ class CartController extends Controller
 
             $actionBtn = '
                     <center>
-                    <img src="/Assets/images/warisan_1.png" style="width:50px;">
+                        <img src="/Assets/images/'.$row->product->image.'" style="width:100px;">
                     </center>';
 
             return $actionBtn;
@@ -51,14 +51,12 @@ class CartController extends Controller
 
             $actionBtn = '<div class="qty-box">
                                     <div class="input-group">
-                                        <span class="input-group-prepend">
-                                        <button type="button" class="btn quantity-left-minus" data-type="minus"
-                                                data-field=""><i class="ti-angle-left" onclick="decreaseQty('.$row->id.')"></i></button> </span>
-                                        <input id="cart_qty" type="number" step="1" min="1" max="" pattern="" inputmode="" name="cart_qty" onchange="edit_cart('.$row->id.')" class="form-control input-text"
-                                            value="'.$row->qty.'"> <span class="input-group-prepend">
-                                        <button type="button" class="btn quantity-right-plus" data-type="plus"
-                                                data-field=""><i class="ti-angle-right" onclick="increaseQty('.$row->id.')"></i></button></span>
-                                        </span>
+                                    <span class="input-group-prepend">
+                                        <button type="button" class="button-hm quantity-right-minus" data-type="plus" data-field=""><i class="fa-solid fa-minus" onclick="decreaseQty('.$row->id.')"></i></i></button>
+                                    </span>
+                                    <input type="number" id="cart_qty" name="cart_qty" min="1" value="'.$row->qty.'" class="qty-input" onchange="edit_cart('.$row->id.')">
+                                    <span class="input-group-prepend">
+                                        <button type="button" class="button-hm quantity-right-plus" data-type="plus" data-field=""><i class="fa-solid fa-plus" onclick="increaseQty('.$row->id.')"></i></i></button></span>
                                     </div>
                         </div>';
 
@@ -67,7 +65,7 @@ class CartController extends Controller
         ->addColumn('action', function ($row) {
             $actionBtn = '
             <center>
-                    <button class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="deleteCartt('.$row->id.')"><i class="far fa-trash-alt"></i></button>
+                    <button class="delete-btn-hm" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="deleteCartt('.$row->id.')"><i class="far fa-trash-alt"></i></button>
             </center>';
 
             return $actionBtn;

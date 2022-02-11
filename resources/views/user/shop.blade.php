@@ -43,7 +43,7 @@
                     
                     <div class="information-grid">
                         <div class="cart-grid">
-                            <a href="#" class="dropdown-heading">Cart</a>
+                            <a href="/cart" class="dropdown-heading">Cart</a>
                             <div class="dropdown-link" id="dropdown-link">
                         
                             </div>
@@ -158,7 +158,7 @@
         <div class="card-content">
             <h2>{{ $product->name }}</h2>
             <p>{{ $product->category->name }}</p>
-            <h2>Rp. {{ $product->regular_price }}</h2>
+            <h2>Rp. {{ number_format($product->regular_price) }}</h2>
         </div>
     </div>
     @endforeach

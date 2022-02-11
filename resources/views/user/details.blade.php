@@ -8,14 +8,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
             integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-        <link rel="stylesheet" href="{{ url('Style/css/detail.css') }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <script src="{{ url('Style/js/detail.js') }}" defer></script>
-        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+            <link rel="stylesheet" href="{{ url('Style/css/detail.css') }}">
+        <script src="{{ url('Style/js/detail.js') }}" defer></script>        
         <title>Detail Product</title>
     </head>
     <body>
-    <nav class="navbar">
+<nav class="navbar">
     <a class="logo" href="home.php">Warisanify</a>
     <ul class="nav-list">
         <li><a class="link" href="/">Home</a></li>
@@ -42,7 +41,7 @@
                     
                     <div class="information-grid">
                         <div class="cart-grid">
-                            <a href="#" class="dropdown-heading">Cart</a>
+                            <a href="/cart" class="dropdown-heading">Cart</a>
                             <div class="dropdown-link" id="dropdown-link">
                         
                             </div>
@@ -113,123 +112,122 @@
     </div>
 </nav>
 
-        <section class="main">
-            
-            <div class="product-detail">
-                <div class="image-product">
-                    <img src="{{ url('Assets/images') }}/{{ $product->image }}" width="100%" alt="">
+<section class="main">
+    
+    <div class="product-detail">
+        <div class="image-product">
+            <img src="{{ url('Assets/images') }}/{{ $product->image }}" width="100%" alt="">
+        </div>
+        
+        <div class="right">
+            <div class="product-detail-content">
+                <h1 class="product-detail-name">
+                    {{ $product->name }}
+                </h1>
+                <div class="product-detail-category">
+                    <p>Category<pre> </pre></p><a href="">Wayang Kulit</a>
                 </div>
-                
-                <div class="right">
-                    <div class="product-detail-content">
-                        <h1 class="product-detail-name">
-                            {{ $product->name }}
-                        </h1>
-                        <div class="product-detail-category">
-                            <p>Category<pre> </pre></p><a href="">Wayang Kulit</a>
-                        </div>
-                            
-                        <h1 class="product-detail-price">Rp. {{ number_format($product->regular_price) }}</h1>
-        
-                    </div>
-        
-                    <hr>
+                    
+                <h1 class="product-detail-price">Rp. {{ number_format($product->regular_price) }}</h1>
 
-                    <form method="POST" id="form">
-                        @csrf
-                        @method('POST')
-                        <input type="hidden" id="product_id" name="product_id" value="{{ $product->id }}">
-                        <div class="quantity-container">
-                            <h2>Quantity</h2>
-                            <div class="quantity-action">
-                                <button class="minus-button">
-                                    <i class="fa-solid fa-minus"></i>
-                                </button>
-                                <input type="number" name="qty" min="1" value="1" class="qty-input">
-                                <button class="plus-button">
-                                    <i class="fa-solid fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        @if(Auth::user())
-                        <button type="button" class="add-to-cart-button" onclick="addToCart()">
-                            Add To Cart
+            </div>
+
+            <hr>
+
+            <form method="POST" id="form">
+                @csrf
+                @method('POST')
+                <input type="hidden" id="product_id" name="product_id" value="{{ $product->id }}">
+                <div class="quantity-container">
+                    <h2>Quantity</h2>
+                    <div class="quantity-action">
+                        <button type="button" onclick="minQty()" class="minus-button">
+                            <i class="fa-solid fa-minus"></i>
                         </button>
-                        @else
-                        <a href="{{ route('login') }}">
-                            <button type="button">Add to cart</button>
-                        </a>
-                        @endif
-                    </form>
-                </div>
-
-            </div>
-
-            <div class="detail-content">
-                <ul class="detail-content-heading">
-                    <li onclick="changeDescription()"><h3 id="desc-head">Description</h3></li>
-                    <li onclick="changeDetailProduct()"><h3 id="detail-head">Detail Product</h3></li>
-                </ul>
-
-                <hr>
-
-                <div class="content" id="content">
-
-                </div>
-                <div class="description-content">
-                    <p class="description-content-text">
-                        {{ $product->short_desc }}
-                    </p>
-                </div>
-                <div class="product-detail-information">
-                    <div class="product-detail-information-text">
-                        <ul class="product-detail-information-head">
-                            <li>Dimension</li>
-                            <li>Material</li>
-                            <li>Weight</li>                    
-                        </ul>
-                        <ul>
-                            <li>:</li>
-                            <li>:</li>
-                            <li>:</li>
-                        </ul>
-                        <ul>
-                            <li>150cm x 20cm</li>
-                            <li>Leather</li>
-                            <li>200g</li>
-                        </ul>
+                        <input type="number" name="qty" id="qty" min="1" value="1" class="qty-input">
+                        <button type="button" onclick="plusQty()" class="plus-button">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
                     </div>
                 </div>
+                @if(Auth::user())
+                <button type="button" class="add-to-cart-button" onclick="addToCart()">
+                    Add To Cart
+                </button>
+                @else
+                <a href="{{ route('login') }}">
+                    <button type="button">Add to cart</button>
+                </a>
+                @endif
+            </form>
+        </div>
+
+    </div>
+
+    <div class="detail-content">
+        <ul class="detail-content-heading">
+            <li onclick="changeDescription()"><h3 id="desc-head">Description</h3></li>
+            <li onclick="changeDetailProduct()"><h3 id="detail-head">Detail Product</h3></li>
+        </ul>
+
+        <hr>
+
+        <div class="content" id="content">
+
+        </div>
+        <div class="description-content">
+            <p class="description-content-text">
+                {{ $product->short_desc }}
+            </p>
+        </div>
+        <div class="product-detail-information">
+            <div class="product-detail-information-text">
+                <ul class="product-detail-information-head">
+                    <li>Dimension</li>
+                    <li>Material</li>
+                    <li>Weight</li>                    
+                </ul>
+                <ul>
+                    <li>:</li>
+                    <li>:</li>
+                    <li>:</li>
+                </ul>
+                <ul>
+                    <li>150cm x 20cm</li>
+                    <li>Leather</li>
+                    <li>200g</li>
+                </ul>
             </div>
+        </div>
+    </div>
 
-        </section>
+</section>
 
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="">Warisanify</a>
-                </div>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <a href="">Warisanify</a>
+        </div>
 
-                <div class="find-us">
-                    <h1>Find Us</h1>
-                    <ul class="find-us-list">
-                        <li><a href="">warisanify.id</a></li>
-                        <li><a href="">warisanify.id</a></li>
-                        <li><a href="">warisanify.id</a></li>
-                        <li><a href="">warisanify.id</a></li>
-                    </ul>
-                </div>
+        <div class="find-us">
+            <h1>Find Us</h1>
+            <ul class="find-us-list">
+                <li><a href="">warisanify.id</a></li>
+                <li><a href="">warisanify.id</a></li>
+                <li><a href="">warisanify.id</a></li>
+                <li><a href="">warisanify.id</a></li>
+            </ul>
+        </div>
 
-                <div class="contact-us">
-                    <h1>Contact Us</h1>
-                    <a href="">warisanify@gmail.com</a>
-                </div>
-            </div>
-        </footer>
+        <div class="contact-us">
+            <h1>Contact Us</h1>
+            <a href="">warisanify@gmail.com</a>
+        </div>
+    </div>
+</footer>
 
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
@@ -314,20 +312,32 @@
             });
         }
 
-        
-
-        function sukses() {
-            const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000
-                });
-            Toast.fire({
-                icon: 'success',
-                title: 'Berhasil !'
-            })
+    qty = parseInt($('#qty').val());    
+    function plusQty(){
+        qty++;
+        $('#qty').val(qty);
+    }
+    function minQty(){
+        if (qty <= 1){
+            $('#qty').val(1);
+        } else{
+            qty--;
         }
+        $('#qty').val(qty);
+    }
+
+    function sukses() {
+        const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2000
+            });
+        Toast.fire({
+            icon: 'success',
+            title: 'Berhasil !'
+        })
+    }
     </script>
 </body>
 </html>

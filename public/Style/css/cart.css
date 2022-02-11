@@ -1,0 +1,461 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: unset;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+nav.navbar-hm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100px;
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../pict/navbar.png");
+  z-index: 10000;
+  align-items: center;
+  font-family: unset;
+}
+nav.navbar-hm .logo {
+  font-size: 4em;
+  color: #fff;
+  text-decoration: none;
+  height: auto;
+  text-align: center;
+}
+nav.navbar-hm .nav-list-hm {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10vh;
+  list-style: none;
+  font-size: 1.5em;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: -100%;
+  background-color: #000;
+  transition: 0.3s;
+  text-align: center;
+}
+nav.navbar-hm .nav-list-hm li {
+  font-size: 2em;
+}
+nav.navbar-hm .nav-list-hm .link {
+  transition: 0.7s ease all;
+  color: #fff;
+  text-decoration: none;
+  height: fit-content;
+  border: none;
+}
+nav.navbar-hm .nav-list-hm .dropdown.active + .link, nav.navbar-hm .nav-list-hm .link:hover {
+  color: #5e5e5e;
+}
+nav.navbar-hm .nav-list-hm .dropdown {
+  position: relative;
+  cursor: pointer;
+}
+nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu {
+  cursor: default;
+  text-align: left;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: -120px;
+  left: -165px;
+  background-color: #fff;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: 150ms ease-in-out all;
+  gap: 1rem;
+  width: 350px;
+}
+nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu hr, nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .information-grid, nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .theater-grid {
+  display: none;
+}
+nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .profile-grid .dropdown-heading {
+  display: none;
+}
+nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .profile-grid .dropdown-link {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 1rem;
+  align-items: center;
+}
+nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .profile-grid .dropdown-link img {
+  width: 80px;
+}
+nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .profile-grid .dropdown-link .profile-content {
+  display: flex;
+  flex-direction: column;
+  font-size: 2em;
+  font-weight: normal;
+}
+nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .profile-grid .dropdown-link .profile-content a {
+  text-decoration: none;
+  color: #000;
+}
+nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .dropdown-heading {
+  font-size: 1.2em;
+  color: #000;
+  font-weight: 500;
+  text-decoration: none;
+}
+nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .dropdown-link > a, nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu p, nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu h6 {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #000;
+  font-size: 0.5em;
+}
+nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .button-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .button-grid a, nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .button-grid form a {
+  width: 50%;
+}
+nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .button-grid a .profile-button, nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .button-grid form a .profile-button {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #714E2F;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1em;
+  font-family: unset;
+  transition: 150ms ease-in-out all;
+}
+nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .button-grid a .profile-button:hover, nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .button-grid form a .profile-button:hover {
+  background-color: #000;
+  color: #fff;
+}
+nav.navbar-hm .nav-list-hm .dropdown.active > .link + .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+nav.navbar-hm .nav-list-hm.active {
+  left: 0;
+}
+nav.navbar-hm .hamburger {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+}
+nav.navbar-hm .hamburger .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: #fff;
+}
+nav.navbar-hm .hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+nav.navbar-hm .hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+nav.navbar-hm .hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+footer.footer {
+  height: 450px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../pict/footer.png");
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  text-align: center;
+}
+footer.footer .footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: center;
+  gap: 2em;
+  margin: auto;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  height: 100%;
+  width: 80%;
+}
+footer.footer .footer-logo {
+  align-self: center;
+  font-size: 3em;
+}
+footer.footer .footer-logo a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "OptimusPrinceps";
+}
+footer.footer .find-us {
+  font-family: "GT Alpina Fine Trial Rg";
+}
+footer.footer .find-us h1 {
+  color: #fff;
+  font-weight: unset;
+  margin-bottom: 24px;
+}
+footer.footer .find-us .find-us-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  list-style-type: none;
+}
+footer.footer .find-us .find-us-list li a {
+  color: #fff;
+  text-decoration: none;
+}
+footer.footer .contact-us h1 {
+  font-weight: unset;
+  color: #fff;
+  margin-bottom: 24px;
+}
+footer.footer .contact-us a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  nav.navbar-hm {
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../pict/navbar.png");
+  }
+  nav.navbar-hm .nav-list-hm {
+    display: flex;
+    flex-direction: row;
+    font-size: 1em;
+    width: 100%;
+    height: fit-content;
+    width: 50%;
+    gap: unset;
+    justify-content: space-around;
+    align-items: center;
+    position: unset;
+    background-color: unset;
+  }
+  nav.navbar-hm .nav-list-hm li {
+    color: #fff;
+    text-decoration: none;
+    height: fit-content;
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu {
+    right: 0;
+    padding: 1rem;
+    left: unset;
+    top: calc(100% + 0.25rem);
+    transform: translateY(-10px);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu hr, nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .information-grid, nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .theater-grid {
+    display: unset;
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .profile-grid .dropdown-link .profile-content {
+    font-size: 2em;
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .information-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    gap: 2rem;
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .information-grid .cart-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .information-grid .cart-grid .cart-product-grid {
+    display: flex;
+    gap: 1rem;
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .information-grid .cart-grid .cart-product-grid:not(last-child) {
+    margin-bottom: 1rem;
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .information-grid .cart-grid .cart-action {
+    height: 100%;
+    display: flex;
+    align-items: end;
+    gap: 1rem;
+    bottom: 0;
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .information-grid .cart-grid .cart-action a {
+    font-size: 0.55em;
+    color: #000;
+    text-decoration: none;
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .information-grid .theater-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .information-grid .theater-grid .theater-ticket-grid {
+    display: flex;
+    gap: 1rem;
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .information-grid .theater-grid .theater-ticket-grid:not(last-child) {
+    margin-bottom: 1rem;
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .information-grid .theater-grid .theater-action {
+    height: 100%;
+    display: flex;
+    align-items: end;
+    gap: 1rem;
+    bottom: 0;
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .information-grid .theater-grid .theater-action a {
+    font-size: 0.55em;
+    color: #000;
+    text-decoration: none;
+  }
+  nav.navbar-hm .nav-list-hm .dropdown .dropdown-menu .profile-button {
+    font-size: 0.8em;
+  }
+  nav.navbar-hm .hamburger {
+    display: none;
+  }
+  nav.navbar-hm .login-btn {
+    padding: 0.6rem;
+    background-color: #fff;
+    border: none;
+    font-weight: 500;
+    font-size: 1.5em;
+    color: #000;
+    cursor: pointer;
+    transition: 0.5s ease all;
+  }
+  nav.navbar-hm .login-btn:hover {
+    background-color: #714E2F;
+    color: #fff;
+  }
+
+  .hero-text {
+    height: 70%;
+    text-align: right;
+    width: 50%;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+  .hero-text h3 {
+    font-size: 0.8em;
+    font-weight: unset;
+  }
+}
+body {
+  font-family: unset;
+}
+
+.qty-box .input-group {
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+.qty-box .input-group .input-group-prepend .button-hm {
+  border: none;
+  border: 2px solid #000;
+  background-color: #000;
+  padding: 0.5em;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  transition: 150ms ease all;
+}
+.qty-box .input-group .input-group-prepend .button-hm:hover {
+  background-color: #fff;
+  color: #000;
+}
+.qty-box .input-group .qty-input {
+  text-align: center;
+  border: 1px solid #000;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  color: #000;
+  font-size: 1.2em;
+  width: 200px;
+}
+.qty-box .input-group input::-webkit-outer-spin-button,
+.qty-box .input-group input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.qty-box .input-group input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.delete-btn-hm {
+  background-color: #000;
+  color: #fff;
+  padding: 0.7em;
+  border: 2px solid #000;
+  outline: none;
+  transition: 150ms ease all;
+}
+
+.delete-btn-hm:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.cart-section {
+  margin-bottom: 100px;
+}
+.cart-section .container .cart-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  justify-content: space-between;
+  margin-top: 2em;
+  gap: 2em;
+}
+.cart-section .container .cart-buttons a {
+  background-color: #714E2F;
+  width: 200px;
+  text-align: center;
+  font-family: unset;
+  padding: 0.5em;
+  text-decoration: none;
+  color: #000;
+  font-size: 1.2em;
+  color: #fff;
+  transition: 150ms ease all;
+}
+.cart-section .container .cart-buttons a:hover {
+  background-color: #000;
+  color: #fff;
+}
+.cart-section .container .cart-buttons #dataTable.table.dataTable tbody tr {
+  background-color: red;
+}
+
+.heading {
+  width: 90vw;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  margin-top: 100px;
+}
+.heading h1 {
+  font-family: unset;
+  font-weight: unset;
+}
+
+/*# sourceMappingURL=cart.css.map */
