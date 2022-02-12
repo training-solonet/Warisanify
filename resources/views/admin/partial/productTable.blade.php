@@ -8,7 +8,7 @@
     <!-- /.card-header -->
     <div class="card-body">
         <a href="javascript:void(0)" class="btn btn-lg btn-info mb-5" onclick=addProduct()>Add Product</a>
-        <table id="productTable" class="table table-bordered table-striped">
+        <table id="productTable" class="table table-bordered table-striped" width="100%">
             <thead>
                 <tr>
                     <th>No.</th>
@@ -16,6 +16,8 @@
                     <th>Name</th>
                     <th>Price</th>
                     <th>Sale Price</th>
+                    <th>Width</th>
+                    <th>Height</th>
                     <th>Category</th>
                     <th>Description</th>
                     <th>Stock Status</th>
@@ -24,7 +26,7 @@
                 </tr>
             </thead>
             <tbody>
-                
+
             </tbody>
         </table>
     </div>
@@ -36,13 +38,6 @@
 
 @section('script')
 <script type="text/javascript">
-  $(document).ready(function(){
-    $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
     $("#productTable").DataTable({
         ordering: false,
         processing : true,
@@ -61,6 +56,8 @@
             {data: "name"},
             {data: "regular_price"},
             {data: "sale_price"},
+            {data: "width"},
+            {data: "height"},
             {data: "category.name"},
             {data: "description"},
             {data: "stock_status"},
@@ -75,7 +72,8 @@
             }
         }]
     });
-  });
+
+
 
   function addProduct(){
     $('#errors_name').text('');
@@ -119,7 +117,6 @@
       console.log("cek")
     $('#errors_name').text('');
             $.get('/admin/product/' + id + '/edit', function (data) {
-                console.log(data);
                 $('#form')[0].reset();
                 $('#exampleModalLabel').html("Edit Post");
                 $('#product_modal').modal('show');
@@ -128,36 +125,15 @@
                 $('#name').val(data.name);
                 $('#regular_price').val(data.regular_price);
                 $('#sale_price').val(data.sale_price);
-            $('#category_id').val(data.category_id);
+                $('#width').val(data.width);
+                $('#height').val(data.height);
+                $('#category_id').val(data.category_id);
                 $('#description').val(data.description);
                 $('#stock_status').val(data.stock_status);
                 $('#quantity').val(data.quantity);
                 // $('#foto').val(data.foto);
-            })
-  }
-
-function deleteShowModal(id) {
-    $('#confirmation-delete-modal').modal('show');
-
-    $('#delete-button').click(function(){
-        $.ajax({
-            url: "/admin/product/" + id, //eksekusi ajax ke url ini
-            type: 'DELETE',
-            success: function (data) { //jika sukses
-                setTimeout(function() {
-                    $('#confirmation-delete-modal').modal('hide'); //sembunyikan konfirmasi modal
-                    var oTable = $('#productTable').dataTable();
-                    oTable.fnDraw(false); //reset datatable
-                });
-            }, error: function (){
-                console.log("error")
-            }
-        });
-    });
-}           
-            
-        
-//         
+            });
+  };
 </script>
 @endsection
 

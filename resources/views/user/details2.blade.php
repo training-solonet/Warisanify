@@ -19,7 +19,7 @@
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css" integrity="sha512-gRH0EcIcYBFkQTnbpO8k0WlsD20x5VzjhOA1Og8+ZUAhcMUCvd+APD35FJw3GzHAP3e+mP28YcDJxVr745loHw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
     <!--Slick slider css-->
     <link rel="stylesheet" type="text/css" href="{{ url('multikart/assets/css/vendors/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('multikart/assets/css/vendors/slick-theme.css') }}">
@@ -67,7 +67,7 @@
                             </ul>
                         </li>
                     </ul>
-                    @else   
+                    @else
                     <ul class="header-dropdown">
                         <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
                             Akun
@@ -167,7 +167,7 @@
                                         <ul class="show-div shopping-cart">
 
                                             <div id="class-keranjang">
-                                                    
+
                                             </div>
 
                                             <li>
@@ -343,7 +343,7 @@
         let text  = "";
         let total = 0;
 
-        $(document).ready(function() { 
+        $(document).ready(function() {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -353,7 +353,7 @@
             show_cart();
         });
 
-        
+
 
         function show_cart(){
             $.ajax({
@@ -378,7 +378,7 @@
                 }
             });
         }
-        
+
         function loopCart(item, index) {
             text += '<li><div class="media"><a href=""><img alt="" class="me-3" src="{{ url("Assets/images/warisan_1.png") }}"></a><div class="media-body"><a href="#"><h4>'+item.product.name+'</h4></a><h4><span>'+item.qty+' x Rp. '+item.product.regular_price+'</span></h4></div></div><div class="close-circle"><a href="#"><i onclick="remove_cart('+item.id+')" class="fa fa-times" aria-hidden="true"></i></a></div></li>';
             total += item.product.regular_price * item.qty;
@@ -417,7 +417,7 @@
                             console.log(data);
                         }
                     },
-                    error: function (jqXHR, textStatus , errorThrown){ 
+                    error: function (jqXHR, textStatus , errorThrown){
                         console.log(errorThrown);
                     }
                 })
@@ -430,7 +430,7 @@
                 }
             })
         }
-        
+
 
         function sukses() {
             const Toast = Swal.mixin({
@@ -458,7 +458,7 @@ function addToCart(){
             sukses();
             show_cart();
         },
-        error: function (jqXHR, textStatus , errorThrown){ 
+        error: function (jqXHR, textStatus , errorThrown){
             console.log(errorThrown);
         }
     });

@@ -19,13 +19,13 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $categorebies = Category::select('id', 'name')->get();
+        $categories = Category::select('id', 'name')->get();
         $stocksStatus = Product::select('id', 'stock_status')->get();
         $products = Product::with('category')->orderByDesc('created_at')->get();
-        if($request->ajax()) {
+        if ($request->ajax()) {
             return Datatables::of($products)
-            ->addIndexColumn()
-            ->addColumn('action', function($products){
+                ->addIndexColumn()
+                ->addColumn('action', function ($products) {
                     // $button = '<button type="button" onclick="javascript:void(0)" data-toggle="tooltip" id="' . $products->id . '" data-original-title="Edit" class="edit btn btn-info btn-sm edit-post"><i class="far fa-edit"></i> Edit</button>';
                     // $button .= '&nbsp;&nbsp;';
                     // $button .= '<button type="button" name="delete" id="' . $products->id . '" class="delete btn btn-danger btn-sm"><i class="far fa-trash-alt"></i> Delete</button>';
@@ -45,11 +45,10 @@ class ProductController extends Controller
                         </div>
                     ';
                     return $button;
-            })
-            ->rawColumns(['action'])
-            ->make(true)
-            ;
-        } 
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
         return view('admin.partial.productTable', compact('categories'));
     }
 
@@ -81,7 +80,7 @@ class ProductController extends Controller
             'quantity' => 'required'
         ]);
 
-        if ($validator->fails()){
+        if ($validator->fails()) {
             return Response()->json(['errors' => $validator->errors()]);
         }
 
@@ -141,7 +140,6 @@ class ProductController extends Controller
 
 
         return response()->json(['status'   => true]);
-        
     }
 
     /**
