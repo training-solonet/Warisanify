@@ -134,6 +134,11 @@
                 // $('#foto').val(data.foto);
             });
   };
+
+  function deleteShowModal() {
+    $()
+  };
+
 </script>
 @endsection
 

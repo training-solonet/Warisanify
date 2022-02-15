@@ -19,7 +19,7 @@
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css" integrity="sha512-gRH0EcIcYBFkQTnbpO8k0WlsD20x5VzjhOA1Og8+ZUAhcMUCvd+APD35FJw3GzHAP3e+mP28YcDJxVr745loHw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
     <!--Slick slider css-->
     <link rel="stylesheet" type="text/css" href="{{ url('multikart/assets/css/vendors/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('multikart/assets/css/vendors/slick-theme.css') }}">
@@ -61,7 +61,7 @@
             <div class="checkout-form">
                 <form action="{{ route('payment.store') }}" method="POST">
                     @csrf
-                    
+
                     <div class="row">
                         <div class="col-lg-6 col-sm-12 col-xs-12">
                             <div class="checkout-title">
@@ -199,7 +199,7 @@
 
 
     <script>
-    $(document).ready(function() {     
+    $(document).ready(function() {
         document.getElementById("kota").disabled = true;
         document.getElementById("kurir").disabled = true;
         document.getElementById("service").disabled = true;
@@ -210,7 +210,7 @@
 
     $('#prov').change(function() {
         var id = $(this).val();
-        
+
         $.ajax({
             url: "/get-city?province_id=" + id,
             method: "GET",
@@ -264,11 +264,11 @@
     });
 
     $('#service').change(function() {
-        var cost        = $(this).val();
+        var cost        = 0;
         var subtotal    = $('#subtotal_checkout').text();
 
         var totalCheckout = parseInt(cost) + parseInt(subtotal.replace(/,/g, ''));
-        
+
         $("#total_ongkir").number(cost);
         $("#total_checkout").number(totalCheckout);
         $("#ongkir").val(cost);

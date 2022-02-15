@@ -21,59 +21,59 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        if(request()->ajax()){
-        $products = Cart::with('product.category:id,name')->where('user_id', Auth::user()->id)->get();
-        return Datatables::of($products)
-        ->addIndexColumn()
-        ->addColumn('image', function ($row) {
+    {
+        if (request()->ajax()) {
+            $products = Cart::with('product.category:id,name')->where('user_id', Auth::user()->id)->get();
+            return Datatables::of($products)
+                ->addIndexColumn()
+                ->addColumn('image', function ($row) {
 
-            $actionBtn = '
+                    $actionBtn = '
                     <center>
-                        <img src="/Assets/images/'.$row->product->image.'" style="width:100px;">
+                        <img src="/Assets/images/' . $row->product->image . '" style="width:100px;">
                     </center>';
 
-            return $actionBtn;
-        })
-        ->addColumn('total', function ($row) {
+                    return $actionBtn;
+                })
+                ->addColumn('total', function ($row) {
 
-            $actionBtn = number_format($row->qty * $row->product->regular_price);
+                    $actionBtn = number_format($row->qty * $row->product->regular_price);
 
-            return $actionBtn;
-        })
-        ->addColumn('price', function ($row) {
+                    return $actionBtn;
+                })
+                ->addColumn('price', function ($row) {
 
-            $actionBtn = number_format($row->product->regular_price);
+                    $actionBtn = number_format($row->product->regular_price);
 
-            return $actionBtn;
-        })
-        ->addColumn('qty', function ($row) {
+                    return $actionBtn;
+                })
+                ->addColumn('qty', function ($row) {
 
-            $actionBtn = '<div class="qty-box">
+                    $actionBtn = '<div class="qty-box">
                                     <div class="input-group">
                                     <span class="input-group-prepend">
-                                        <button type="button" class="button-hm quantity-right-minus" data-type="plus" data-field=""><i class="fa-solid fa-minus" onclick="decreaseQty('.$row->id.')"></i></i></button>
+                                        <button type="button" class="button-hm quantity-right-minus" data-type="plus" data-field=""><i class="fa-solid fa-minus" onclick="decreaseQty(' . $row->id . ')"></i></i></button>
                                     </span>
-                                    <input type="number" id="cart_qty" name="cart_qty" min="1" value="'.$row->qty.'" class="qty-input" onchange="edit_cart('.$row->id.')">
+                                    <input type="number" id="cart_qty" name="cart_qty" min="1" value="' . $row->qty . '" class="qty-input" onchange="edit_cart(' . $row->id . ')">
                                     <span class="input-group-prepend">
-                                        <button type="button" class="button-hm quantity-right-plus" data-type="plus" data-field=""><i class="fa-solid fa-plus" onclick="increaseQty('.$row->id.')"></i></i></button></span>
+                                        <button type="button" class="button-hm quantity-right-plus" data-type="plus" data-field=""><i class="fa-solid fa-plus" onclick="increaseQty(' . $row->id . ')"></i></i></button></span>
                                     </div>
                         </div>';
 
-            return $actionBtn;
-        })
-        ->addColumn('action', function ($row) {
-            $actionBtn = '
+                    return $actionBtn;
+                })
+                ->addColumn('action', function ($row) {
+                    $actionBtn = '
             <center>
-                    <button class="delete-btn-hm" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="deleteCartt('.$row->id.')"><i class="far fa-trash-alt"></i></button>
+                    <button class="delete-btn-hm" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="deleteCartt(' . $row->id . ')"><i class="far fa-trash-alt"></i></button>
             </center>';
 
-            return $actionBtn;
-        })
-        ->rawColumns(['action', 'image', 'qty'])
-        ->make(true);
-    }
-        return view('user.cart');   
+                    return $actionBtn;
+                })
+                ->rawColumns(['action', 'image', 'qty'])
+                ->make(true);
+        }
+        return view('user.cart');
     }
 
     /**
@@ -100,7 +100,7 @@ class CartController extends Controller
     public function store(Request $request)
     {
 
-        //ga berfaeda ini wkamdkawmmkdwakmdkwam    
+        //ga berfaeda ini wkamdkawmmkdwakmdkwam
         ///$product = Product::get();
         $checkReady = Cart::where('user_id', Auth::user()->id)->where('product_id', $request->product_id)->first();
 
@@ -108,10 +108,10 @@ class CartController extends Controller
             Cart::where('user_id', Auth::user()->id)->where('product_id', $request->product_id)->update([
                 'qty' => $request->qty + $checkReady->qty
             ]);
-        } else{
+        } else {
             Cart::create([
                 'user_id' => Auth::user()->id,
-                'product_id' =>  $request->product_id,
+                'product_id' => $request->product_id,
                 'qty' => $request->qty
             ]);
         }
@@ -128,7 +128,7 @@ class CartController extends Controller
     public function show($id)
     {
         $data = Cart::with('product')->where('user_id', Auth::user()->id)->get();
-        // return $data;   
+        // return $data;
         return Response()->json($data);
     }
 
@@ -156,7 +156,6 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-    
     }
 
     /**

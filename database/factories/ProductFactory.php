@@ -22,10 +22,12 @@ class ProductFactory extends Factory
             'description' => $this->faker->text(200),
             'short_desc' => $this->faker->text(200),
             'regular_price' => $this->faker->numberBetween(200000, 500000),
+            'width' => $this->faker->numberBetween(20, 50),
+            'height' => $this->faker->numberBetween(20, 50),
             'stock_status' => 'instock',
             'quantity' => $this->faker->numberBetween(100, 200),
             // 'image' => 'warisan_' . $this->faker->unique()->numberBetween(1, 2) . '.jpg',
-            'image' => 'warisan_' . mt_rand(1,2) . '.png',
+            'image' => 'warisan_' . mt_rand(1, 2) . '.png',
             'category_id' => $this->faker->numberBetween(1, 5)
         ];
     }

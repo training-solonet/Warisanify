@@ -312,7 +312,7 @@ footer.footer .contact-us a {
   }
   nav.navbar .nav-list .dropdown .dropdown-menu .information-grid {
     display: grid;
-    grid-template-columns: repeat(2, max-content);
+    grid-template-columns: repeat(2, 300px);
     gap: 2rem;
   }
   nav.navbar .nav-list .dropdown .dropdown-menu .information-grid .cart-grid {
@@ -327,6 +327,18 @@ footer.footer .contact-us a {
   nav.navbar .nav-list .dropdown .dropdown-menu .information-grid .cart-grid .cart-product-grid:not(last-child) {
     margin-bottom: 1rem;
   }
+  nav.navbar .nav-list .dropdown .dropdown-menu .information-grid .cart-grid .cart-action {
+    height: 100%;
+    display: flex;
+    align-items: end;
+    gap: 1rem;
+    bottom: 0;
+  }
+  nav.navbar .nav-list .dropdown .dropdown-menu .information-grid .cart-grid .cart-action a {
+    font-size: 0.55em;
+    color: #000;
+    text-decoration: none;
+  }
   nav.navbar .nav-list .dropdown .dropdown-menu .information-grid .theater-grid {
     display: flex;
     flex-direction: column;
@@ -338,6 +350,18 @@ footer.footer .contact-us a {
   }
   nav.navbar .nav-list .dropdown .dropdown-menu .information-grid .theater-grid .theater-ticket-grid:not(last-child) {
     margin-bottom: 1rem;
+  }
+  nav.navbar .nav-list .dropdown .dropdown-menu .information-grid .theater-grid .theater-action {
+    height: 100%;
+    display: flex;
+    align-items: end;
+    gap: 1rem;
+    bottom: 0;
+  }
+  nav.navbar .nav-list .dropdown .dropdown-menu .information-grid .theater-grid .theater-action a {
+    font-size: 0.55em;
+    color: #000;
+    text-decoration: none;
   }
   nav.navbar .nav-list .dropdown .dropdown-menu .profile-button {
     font-size: 0.8em;

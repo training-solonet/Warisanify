@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url('Style/css/profil') }}">
+    {{-- <link rel="stylesheet" href="{{ url('Style/css/profil') }}"> --}}
+      <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
                                 <div class="mx-auto md:mx-0 flex justify-center items-center">
                                     <!-- {/* <imgProfile /> */} -->
                                     <!-- {/* <img src={"../../public/default.jpg"} alt="gmbr_prf" /> */} -->
-                                    <img src="img/default.jpg" alt="gmbr_prf" class="object-center rounded-lg md:rounded-full h-28 w-28 sm:w-14 sm:h-14" />
+                                    <img src="{{ url("Style/pict/default.jpg") }}" alt="gmbr_prf" class="object-center rounded-lg md:rounded-full h-28 w-28 sm:w-14 sm:h-14" />
                                 </div>
                                 <div class="flex flex-col my-4">
                                     <h6 class="flex-auto text-center font-bold m-1">Nama User</h6>
@@ -64,7 +65,7 @@
 
                                     <div class="flex-2 p-4 shadow-md shadow-slate-400 rounded-md mt-4">
                                         <div class="flex justify-center items-center">
-                                            <img src="img/default.jpg" alt="" class="object-none object-center w-65 h-65 rounded-md" />
+                                            <img src="{{ url("Style/pict/default.jpg") }}" alt="" class="object-none object-center w-65 h-65 rounded-md" />
                                         </div>
                                         <!-- {/* <Button class="">Pilih Foto</Button> */} -->
                                         <div class="my-2 text-center box-border hover:box-content bg-amber-400 text-white font-bold rounded-md px-4 py-2">Pilih Foto</div>

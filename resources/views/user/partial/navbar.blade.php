@@ -72,7 +72,7 @@
 
                     <div class="button-grid">
                         <a href="/profil"><button class="profile-button editProfileButton">Edit Profile</button></a>
-                        <a href=""><button class="profile-button logoutButton">Logout</button></a>
+                        <a href="/logout"><button class="profile-button logoutButton">Logout</button></a>
                     </div>
                 </div>
             </li>

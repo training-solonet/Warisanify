@@ -2,7 +2,7 @@
 
 @section('style')
 
-    <link rel="stylesheet" href="{{ url('Style/css/About2.css') }}">
+    <link rel="stylesheet" href="{{ url('Style/css/Aboutt.css') }}">
 
 @endsection
 
@@ -36,3 +36,4 @@
         </div>
     </section>
 @endsection
+

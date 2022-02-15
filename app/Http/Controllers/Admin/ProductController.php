@@ -76,6 +76,8 @@ class ProductController extends Controller
             'sale_price' => 'required',
             'category_id' => 'required',
             'description' => 'required',
+            'width' => "required",
+            'height' => "required",
             'stock_status' => 'required',
             'quantity' => 'required'
         ]);
@@ -99,6 +101,8 @@ class ProductController extends Controller
                         'category_id' => $request->category_id,
                         'description' => $request->description,
                         'stock_status' => $request->stock_status,
+                        'width' => $request->width,
+                        'height' => $request->height,
                         'quantity' => $request->quantity,
                         'image' => $image
                     ]
@@ -113,6 +117,8 @@ class ProductController extends Controller
                         'category_id' => $request->category_id,
                         'description' => $request->description,
                         'stock_status' => $request->stock_status,
+                        'width' => $request->width,
+                        'height' => $request->height,
                         'quantity' => $request->quantity
                     ]
                 );
@@ -131,7 +137,10 @@ class ProductController extends Controller
                     'sale_price' => $request->sale_price,
                     'category_id' => $request->category_id,
                     'description' => $request->description,
+                    'description' => $request->description,
                     'stock_status' => $request->stock_status,
+                    'width' => $request->width,
+                    'height' => $request->height,
                     'quantity' => $request->quantity,
                     'image' => $image
                 ]

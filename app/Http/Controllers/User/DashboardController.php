@@ -15,11 +15,11 @@ class DashboardController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->get('search')){
-            $products = Product::with('category')->where('name', 'like', '%' . $request->get('search'). '%')->where('stock_status', 'instock')->paginate(5);
+        if ($request->get('search')) {
+            $products = Product::with('category')->where('name', 'like', '%' . $request->get('search') . '%')->where('stock_status', 'instock')->paginate(5);
 
             return view('user.shop', compact('products'));
-        } else{
+        } else {
             $products = Product::with('category')->where('stock_status', 'instock')->simplePaginate(5);
 
             return view('user.shop', compact('products'));
@@ -80,7 +80,6 @@ class DashboardController extends Controller
             'price' => number_format($data->regular_price),
             'discount' => number_format($data->regular_price * 1.5)
         ]);
-        
     }
 
     /**
